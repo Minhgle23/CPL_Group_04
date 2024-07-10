@@ -43,9 +43,14 @@ function CustomNavbar() {
               </Dropdown>
             ) : (
               <Button variant="outline-dark" as={Link} to="/login">
-                <i className="fa fa-login"></i> Login
+                <i className="fa fa-sign-in"></i> Login
               </Button>
             )}
+          </Nav>
+          <Nav>
+            <Button variant="outline-dark" as={Link} to ="/cart">
+                <i className='fa fa-shopping-cart'> Cart </i>
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

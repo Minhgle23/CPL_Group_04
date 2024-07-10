@@ -9,6 +9,7 @@ import Navbar from './component/common/Navbar';
 import Product from './component/Product';
 import ProductDetail from './component/ProductDetail';
 import Login from './component/Login';
+import Profile from './component/Profile';
 
 
 function App() {
@@ -22,12 +23,11 @@ function App() {
             <Route path='/products' element={<Product/>}/>
             <Route path='/products/:id' element={<ProductDetail/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/profile' element={<Profile/>}/>
           </Routes>
         </Col>
       </Row>
-      <div style={{ textAlign: "center", backgroundColor: "#f5f5f5", lineHeight: "50px" }}>
-        Footer
-      </div>
+    
     </BrowserRouter >
   );
 }
