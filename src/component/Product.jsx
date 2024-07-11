@@ -14,9 +14,8 @@ function Product() {
 
 
   useEffect(() => {
-<<<<<<< Updated upstream:ecommer/src/component/Product.jsx
     fetch("https://fakestoreapi.com/products")
-=======
+
     fetchProducts();
     fetchCategories();
   }, [cateID, search, sortOption, limit]);
@@ -43,7 +42,6 @@ function Product() {
 
   const fetchCategories = () => {
     fetch("http://localhost:9999/categories")
->>>>>>> Stashed changes:src/component/Product.jsx
       .then((res) => res.json())
       .then((result) => setCategories(result));
   };
