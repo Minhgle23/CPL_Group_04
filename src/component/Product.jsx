@@ -14,8 +14,6 @@ function Product() {
 
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-
     fetchProducts();
     fetchCategories();
   }, [cateID, search, sortOption, limit]);
