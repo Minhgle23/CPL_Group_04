@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
+
   
   const {id} = useParams();
   console.log(id);
@@ -12,7 +13,6 @@ const ProductDetail = () => {
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, [id]);
-
   console.log(product);
 
 

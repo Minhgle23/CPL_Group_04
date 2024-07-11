@@ -12,6 +12,7 @@ import Login from './component/Login';
 import Profile from './component/Profile';
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         </Col>
       </Row>
     
+
     </BrowserRouter >
   );
 }
