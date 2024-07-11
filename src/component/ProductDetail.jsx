@@ -4,17 +4,15 @@ import { useState } from "react";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState({});
-  {
-    /* Now we need a product id which is pass from the product page. */
-  }
+
+  
   const {id} = useParams();
   console.log(id);
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`http://localhost:9999/products/${id}`)
       .then((res) => res.json())
       .then((json) => setProduct(json));
-  }, []);
-
+  }, [id]);
   console.log(product);
 
 
