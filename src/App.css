@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 /* Container cho form đăng nhập */
 .login-container {
   background-color: #ffffff;
@@ -89,4 +92,71 @@
 
 .user-menu .dropdown-item:hover {
   background-color: #f0f0f0;
+}
+.profile-container {
+  padding: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.account-settings .user-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: auto;
+}
+
+.user-name {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-email {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.about {
+  margin-top: 20px;
+}
+
+.about h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  margin-top: 20px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.edit-button {
+  margin-top: 20px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.btn-secondary {
+  margin-right: 10px;
 }
