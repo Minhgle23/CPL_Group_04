@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
+import CartContext from '../CartContext';
 
 function CustomNavbar() {
   const [user, setUser] = useState(null);
+  const { totalCartItem } = useContext(CartContext);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -15,18 +18,18 @@ function CustomNavbar() {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    window.location.href = '/'; // Chuyển hướng đến trang chính sau khi logout
+    window.location.href = '/'; // Redirect to the main page after logout
   };
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#">Ecommer</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Ecommer</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/products">Product</Nav.Link>
+            <Nav.Link as={Link} to="/products">Products</Nav.Link>
             <Nav.Link href="#">Contact</Nav.Link>
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
@@ -34,7 +37,7 @@ function CustomNavbar() {
             {user ? (
               <Dropdown align="end">
                 <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
-                  Hello, {user.name.firstname} 
+                  Hello, {user.name.firstname}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item as={Link} to="/profile">View Profile</Dropdown.Item>
@@ -48,8 +51,8 @@ function CustomNavbar() {
             )}
           </Nav>
           <Nav>
-            <Button variant="outline-dark" as={Link} to ="/cart">
-                <i className='fa fa-shopping-cart'> Cart </i>
+            <Button variant="outline-dark" as={Link} to="/cart">
+              <i className="fa fa-shopping-cart"></i> Cart({totalCartItem})
             </Button>
           </Nav>
         </Navbar.Collapse>
@@ -59,4 +62,3 @@ function CustomNavbar() {
 }
 
 export default CustomNavbar;
-
