@@ -1,10 +1,16 @@
 
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import CartContext from '../CartContext';
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 
 function CustomNavbar() {
   const [user, setUser] = useState(null);
+  const {totalCartItem} = useContext(CartContext);
+
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -49,8 +55,9 @@ function CustomNavbar() {
             )}
           </Nav>
           <Nav>
-            <Button variant="outline-dark" as={Link} to ="/cart">
-                <i className='fa fa-shopping-cart'> Cart </i>
+            <Button variant="outline-dark" as={Link} to ="/cart"
+                <i className='fa fa-shopping-cart'> Cart({totalCartItem}) </i>
+
             </Button>
           </Nav>
         </Navbar.Collapse>
