@@ -17,7 +17,7 @@ function Home() {
         <HomeTitle />
         <HomeReco/>
       </Row>
- 
+      <Homeheader/>
     </Container>
   );
 }
