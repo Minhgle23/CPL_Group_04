@@ -40,9 +40,10 @@
             >
               Add to cart hehe
             </button>
-            <Comment productId={product.id} user={user} isAuthenticated={isAuthenticated} />
+           
           </div>
         </div>
+        <Comment productId={product.id} user={user} isAuthenticated={isAuthenticated} />
       </div>
     );
   };

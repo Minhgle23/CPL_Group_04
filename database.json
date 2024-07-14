@@ -522,19 +522,23 @@
       "productId": 1,
       "comment": [
         {
-          "id": 1,
-          "text": "Great product!"
+          "id": 1720952864833,
+          "text": "siuuuuu",
+          "userId": "3",
+          "username": "kevinryan",
+          "date": "14/7/2024"
+          
         },
         {
-          "id": 2,
-          "text": "Highly recommended."
-        },
-        {
-          "id": 3,
-          "text": "kkk"
+          "id": 1720952871581,
+          "text": "nói gì đi bạn ",
+          "userId": "3",
+          "username": "kevinryan",
+          "date": "14/7/2024"
+         
         }
       ],
-      "rate": 5
+      "overallRate": 4.5
     },
     {
       "id": "2",
@@ -542,23 +546,57 @@
       "productId": 2,
       "comment": [
         {
-          "id": 1,
-          "text": "Not bad."
-        },
-        {
           "id": 2,
-          "text": "Could be better."
+          "text": "được chưa?\n",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "14/7/2024"
         },
         {
-          "id": 3,
-          "text": "gá'"
+          "id": 1720952762714,
+          "text": "lại không được rồi \n",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "14/7/2024"
         },
         {
-          "id": 4,
-          "text": "hh"
+          "id": 1720952783216,
+          "text": "được không?",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "14/7/2024"
+        },
+        {
+          "id": 1720952797847,
+          "text": "hình như là ",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "14/7/2024"
+        },
+        {
+          "id": 1720952831753,
+          "text": "để tôi test",
+          "userId": "3",
+          "username": "kevinryan",
+          "date": "14/7/2024"
+        },
+        {
+          "id": 1720952843213,
+          "text": "cái thứ 2",
+          "userId": "3",
+          "username": "kevinryan",
+          "date": "14/7/2024"
+        },
+        {
+          "id": 1720952848920,
+          "text": "oce rồi ",
+          "userId": "3",
+          "username": "kevinryan",
+          "date": "14/7/2024"
         }
       ],
-      "rate": 3
+      
+      "overallRate": null
     },
     {
       "id": "1720756713091",
@@ -586,7 +624,7 @@
           "text": "eqe"
         }
       ],
-      "rate": 5
+      "rate": 3
     },
     {
       "id": "1720757022918",
@@ -598,19 +636,7 @@
           "text": "jhbkb\n"
         },
         {
-          "id": 2,
-          "text": "xx"
-        },
-        {
           "id": 3,
-          "text": ""
-        },
-        {
-          "id": 4,
-          "text": ""
-        },
-        {
-          "id": 5,
           "text": ""
         }
       ],
