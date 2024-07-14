@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 
-function CustomNavbar() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
+function CustomNavbar({ user, setUser, setIsAuthenticated }) {
+  console.log(user);
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    window.location.href = '/'; // Chuyển hướng đến trang chính sau khi logout
+    setIsAuthenticated(false);
+    window.location.href = '/'; // Redirect to home page after logout
   };
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#">Ecommer</Navbar.Brand>
+        <Navbar.Brand href="/">Ecommer</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
@@ -34,7 +27,7 @@ function CustomNavbar() {
             {user ? (
               <Dropdown align="end">
                 <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
-                  Hello, {user.name.firstname} 
+                  Hello, {user.username && user.name.firstname}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item as={Link} to="/profile">View Profile</Dropdown.Item>
@@ -47,9 +40,9 @@ function CustomNavbar() {
               </Button>
             )}
           </Nav>
-          <Nav>
-            <Button variant="outline-dark" as={Link} to ="/cart">
-                <i className='fa fa-shopping-cart'> Cart </i>
+          <Nav style={{marginleft: '5px'}}>
+            <Button variant="outline-dark" as={Link} to="/cart" >
+              <i className='fa fa-shopping-cart' ></i> Cart 
             </Button>
           </Nav>
         </Navbar.Collapse>

@@ -514,5 +514,107 @@
       },
       "phone": "1-104-001-4567"
     }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "userid": 1,
+      "productId": 1,
+      "comment": [
+        {
+          "id": 1,
+          "text": "Great product!"
+        },
+        {
+          "id": 2,
+          "text": "Highly recommended."
+        },
+        {
+          "id": 3,
+          "text": "kkk"
+        }
+      ],
+      "rate": 5
+    },
+    {
+      "id": "2",
+      "userid": 2,
+      "productId": 2,
+      "comment": [
+        {
+          "id": 1,
+          "text": "Not bad."
+        },
+        {
+          "id": 2,
+          "text": "Could be better."
+        },
+        {
+          "id": 3,
+          "text": "gá'"
+        },
+        {
+          "id": 4,
+          "text": "hh"
+        }
+      ],
+      "rate": 3
+    },
+    {
+      "id": "1720756713091",
+      "userid": "3",
+      "productId": "3",
+      "comment": [
+        {
+          "id": 1,
+          "text": "kk"
+        }
+      ],
+      "rate": 5
+    },
+    {
+      "id": "1720756990558",
+      "userid": "3",
+      "productId": "4",
+      "comment": [
+        {
+          "id": 1,
+          "text": "kkk"
+        },
+        {
+          "id": 2,
+          "text": "eqe"
+        }
+      ],
+      "rate": 5
+    },
+    {
+      "id": "1720757022918",
+      "userid": "3",
+      "productId": "6",
+      "comment": [
+        {
+          "id": 1,
+          "text": "jhbkb\n"
+        },
+        {
+          "id": 2,
+          "text": "xx"
+        },
+        {
+          "id": 3,
+          "text": ""
+        },
+        {
+          "id": 4,
+          "text": ""
+        },
+        {
+          "id": 5,
+          "text": ""
+        }
+      ],
+      "rate": 5
+    }
   ]
 }

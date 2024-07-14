@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router";
-import { useState } from "react";
-
-const ProductDetail = () => {
-  const [product, setProduct] = useState({});
+  import React, { useEffect } from "react";
+  import { useParams, useNavigate } from "react-router-dom";
+  import { useState } from "react";
+  import Comment from "./Comment";
   
-  const {id} = useParams();
-  console.log(id);
-  useEffect(() => {
-    fetch(`http://localhost:9999/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => setProduct(json));
-  }, [id]);
+  const ProductDetail = ({ user, isAuthenticated }) => {
+    const [product, setProduct] = useState({});
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-  console.log(product);
+    useEffect(() => {
+      fetch(`http://localhost:9999/products/${id}`)
+        .then((res) => res.json())
+        .then((json) => setProduct(json));
+    }, [id]);
 
+    const handleAddToCart = () => {
+      if (!isAuthenticated) {
+        navigate('/login');
+      } else {
+        // Handle add to cart functionality
+        console.log('Added to cart');
+      }
+    };
 
-
-  return (
-    <>
+    return (
       <div className="container my-5 py-3">
         <div className="row">
           <div className="col-md-6 d-flex justify-content-center mx-auto product">
@@ -31,14 +36,15 @@ const ProductDetail = () => {
             <p className="lead">{product.description}</p>
             <button
               className="btn btn-outline-primary my-5"
+              onClick={handleAddToCart}
             >
-                Add to cart hehe
+              Add to cart hehe
             </button>
+            <Comment productId={product.id} user={user} isAuthenticated={isAuthenticated} />
           </div>
         </div>
       </div>
-    </>
-  );
-};
+    );
+  };
 
-export default ProductDetail;
+  export default ProductDetail;
