@@ -1,6 +1,11 @@
+ PhanDucManh
+*{
+=======
 
 body{
+ main
   margin: 0;
+  padding: 0;
 }
 /* Container cho form đăng nhập */
 .login-container {
@@ -160,4 +165,102 @@ body{
 
 .btn-secondary {
   margin-right: 10px;
+}
+.comment-section {
+  background-color: #f7f6f6;
+  width: 100%;
+  padding: 20px;
+}
+
+.comment-section .container {
+  max-width: 800px;
+}
+
+.comment-section .card {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 8px;
+}
+
+.comment-section .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-section textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-section button {
+  padding: 8px 16px;
+  /* background-color: #007bff; */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* .comment-section button:hover {
+  /* background-color: #0056b3; 
+} */
+
+.comment-section .link-grey {
+  color: #1b1919;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.comment-section .link-grey:hover {
+  color: #b5b8bd;
+}
+
+.comment-section img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.comment-section .d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-section .d-flex .text-primary {
+  margin: 0;
+}
+
+.comment-section .d-flex .text-body {
+  margin-left: 10px;
+}
+
+.comment-section .d-flex .small {
+  margin: 0;
+}
+
+.comment-section .fa {
+  margin-right: 10px;
+}
+.save {
+  margin-right: 10px;
+  background-color: red;
+}
+.save:hover {
+  background-color: rgb(222, 25, 25);
+}
+.cancel {
+  margin-right: 10px;
+  background-color: #333536;
+}
+.cancel:hover {
+  background-color: #5a6268;
 }
