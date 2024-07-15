@@ -6,6 +6,7 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
   const [newComment, setNewComment] = useState("");
   const [editCommentStates, setEditCommentStates] = useState({});
   const [review, setReview] = useState(null);
+  const [userRating, setUserRating] = useState(0);
 
   useEffect(() => {
     if (productId) {
@@ -13,18 +14,29 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
         .then((res) => res.json())
         .then((json) => {
           if (json.length > 0) {
-            setComments(json[0].comment);
+            setComments(json[0].comments || []);
             setReview(json[0]);
+            if (user && user.id) {
+              const userRating = json[0].ratings.find(r => r.userId === user.id);
+              setUserRating(userRating ? userRating.rate : 0);
+            }
           } else {
             setComments([]);
             setReview(null);
+            setUserRating(0);
           }
+        })
+        .catch(error => {
+          console.error("Error fetching reviews:", error);
+          setComments([]);
+          setReview(null);
+          setUserRating(0);
         });
     }
-  }, [productId]);
+  }, [productId, user]);
 
   const handleAddComment = () => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !user) {
       alert("You must be logged in to comment.");
       return;
     }
@@ -39,18 +51,17 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
       text: newComment,
       userId: user.id,
       username: user.username,
-      date: new Date().toLocaleDateString(),
-      rate: 0 // Default rating
+      date: new Date().toLocaleDateString()
     };
+
 
     fetch(`http://localhost:9999/reviews?productId=${productId}`)
       .then(res => res.json())
       .then(reviews => {
         if (reviews.length > 0) {
           const review = reviews[0];
-          const updatedComments = [...review.comment, newCommentObject];
-          review.comment = updatedComments;
-          review.overallRate = calculateOverallRate(updatedComments);
+          const updatedComments = [...(review.comments || []), newCommentObject];
+          review.comments = updatedComments;
 
           fetch(`http://localhost:9999/reviews/${review.id}`, {
             method: "PUT",
@@ -62,16 +73,14 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
             .then((res) => res.json())
             .then(() => {
               setComments(updatedComments);
-              setReview(review);
               setNewComment("");
             });
         } else {
           const newReview = {
             id: new Date().getTime(),
-            userid: user.id,
             productId: productId,
-            comment: [newCommentObject],
-            overallRate: 0
+            ratings: [],
+            comments: [newCommentObject]
           };
 
           fetch(`http://localhost:9999/reviews`, {
@@ -83,15 +92,9 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
           })
             .then((res) => res.json())
             .then(() => {
-              fetch(`http://localhost:9999/reviews?productId=${productId}`)
-                .then(res => res.json())
-                .then((updatedReviews) => {
-                  if (updatedReviews.length > 0) {
-                    setComments(updatedReviews[0].comment);
-                    setReview(updatedReviews[0]);
-                    setNewComment("");
-                  }
-                });
+              setComments([newCommentObject]);
+              setNewComment("");
+              setReview(newReview);
             });
         }
       });
@@ -120,61 +123,87 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
       comment.id === id ? { ...comment, text: editCommentStates[id] } : comment
     );
 
-    updateReviewWithComments(updatedComments);
+    const updatedReview = { ...review, comments: updatedComments };
+
+    fetch(`http://localhost:9999/reviews/${review.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedReview),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setComments(updatedComments);
+        setEditCommentStates(prevState => {
+          const newState = {...prevState};
+          delete newState[id];
+          return newState;
+        });
+      });
   };
 
   const handleDeleteComment = (id) => {
     const updatedComments = comments.filter((comment) => comment.id !== id);
-    updateReviewWithComments(updatedComments);
-  };
+    const updatedReview = { ...review, comments: updatedComments };
 
-  const handleCommentRatingChange = (commentId, newRating) => {
-    if (!isAuthenticated) {
-      alert("You must be logged in to change the rating.");
-      return;
-    }
-
-    const updatedComments = comments.map(comment => 
-      comment.id === commentId ? { ...comment, rate: newRating } : comment
-    );
-
-    updateReviewWithComments(updatedComments);
-  };
-
-  const updateReviewWithComments = (updatedComments) => {
-    fetch(`http://localhost:9999/reviews?productId=${productId}`)
-      .then(res => res.json())
-      .then(reviews => {
-        if (reviews.length > 0) {
-          const review = reviews[0];
-          review.comment = updatedComments;
-          review.overallRate = calculateOverallRate(updatedComments);
-
-          fetch(`http://localhost:9999/reviews/${review.id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(review),
-          })
-            .then((res) => res.json())
-            .then(() => {
-              setComments(updatedComments);
-              setReview(review);
-              setEditCommentStates({});
-            })
-            .catch((error) => {
-              console.error("Error updating review:", error);
-              alert("Failed to update review. Please try again.");
-            });
-        }
+    fetch(`http://localhost:9999/reviews/${review.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedReview),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setComments(updatedComments);
       });
   };
 
-  const calculateOverallRate = (comments) => {
-    if (comments.length === 0) return 0;
-    const sum = comments.reduce((acc, comment) => acc + comment.rate, 0);
-    return sum / comments.length;
+  const handleRatingChange = (newRating) => {
+    if (!isAuthenticated || !user) {
+      alert("You must be logged in to rate.");
+      return;
+    }
+
+    if (!review) {
+      console.error("Review not found");
+      return;
+    }
+
+    let updatedRatings = review.ratings || [];
+    if (updatedRatings.some(r => r.userId === user.id)) {
+      updatedRatings = updatedRatings.map(r => 
+        r.userId === user.id ? { ...r, rate: newRating } : r
+      );
+    } else {
+      updatedRatings = [...updatedRatings, { userId: user.id, rate: newRating }];
+    }
+
+    const updatedReview = { ...review, ratings: updatedRatings };
+
+    fetch(`http://localhost:9999/reviews/${review.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedReview),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setReview(updatedReview);
+        setUserRating(newRating);
+      })
+      .catch((error) => {
+        console.error("Error updating rating:", error);
+        alert("Failed to update rating. Please try again.");
+      });
+  };
+
+  const calculateAverageRating = () => {
+    if (!review || !review.ratings || review.ratings.length === 0) return 0;
+    const sum = review.ratings.reduce((acc, curr) => acc + curr.rate, 0);
+    return sum / review.ratings.length;
   };
 
   return (
@@ -184,13 +213,15 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
           <div className="col-md-12 col-lg-10 col-xl-8">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h4 className="text-body mb-0">Comments ({comments.length})</h4>
-              {review && (
+              {review && isAuthenticated && user && (
                 <div className="d-flex align-items-center">
-                  <span className="me-2">Overall Rating:</span>
+                  <span className="me-2">Your Rating:</span>
                   <Rating 
-                    rating={review.overallRate} 
-                    editable={false}
+                    rating={userRating} 
+                    onRatingChange={handleRatingChange}
+                    editable={isAuthenticated}
                   />
+                  <span className="ms-2">Average Rating: {calculateAverageRating().toFixed(1)}</span>
                 </div>
               )}
             </div>
@@ -213,8 +244,8 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
                         </h6>
                         <p className="mb-0">{c.date}</p>
                       </div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        {isAuthenticated && user.id === c.userId && (
+                      {isAuthenticated && user && user.id === c.userId && (
+                        <div className="d-flex justify-content-between align-items-center">
                           <p className="small mb-0" style={{ color: "#aaa" }}>
                             <a href="#!" className="link-grey" onClick={() => handleDeleteComment(c.id)}>
                               Remove
@@ -223,13 +254,8 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
                               Edit
                             </a>
                           </p>
-                        )}
-                        <Rating 
-                          rating={c.rate} 
-                          onRatingChange={(newRating) => handleCommentRatingChange(c.id, newRating)}
-                          editable={isAuthenticated && user.id === c.userId}
-                        />
-                      </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                   {editCommentStates.hasOwnProperty(c.id) && (
@@ -252,7 +278,7 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
                 </div>
               </div>
             ))}
-            {isAuthenticated && (
+            {isAuthenticated && user && (
               <div>
                 <textarea
                   id="newComment"

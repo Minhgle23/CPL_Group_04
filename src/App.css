@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
 }
-/* Container cho form đăng nhập */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
 .login-container {
   background-color: #ffffff;
   padding: 20px 40px;
@@ -258,4 +262,38 @@
 }
 .cancel:hover {
   background-color: #5a6268;
+}.rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  color: #ccc;
+  font-size: 15px;
+  position: relative;
+}
+
+.rating .star {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating .star.filled {
+  color: #f8ce0b;
+}
+
+.rating .star:hover,
+.rating .star:hover ~ .star {
+  color: transparent;
+}
+
+.rating {
+  display: inline-block;
+  position: relative;
+}
+
+.rating .star:hover:before,
+.rating .star:hover ~ .star:before {
+  content: '★';
+  position: absolute;
+  color: #f8ce0b;
+  left: 0;
 }

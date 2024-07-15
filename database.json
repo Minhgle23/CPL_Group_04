@@ -520,6 +520,16 @@
       "id": "1",
       "userid": 1,
       "productId": 1,
+      "ratings": [
+        {
+          "userId": "2",
+          "rate": 1
+        },
+        {
+          "userId": "3",
+          "rate": 5
+        }
+      ],
       "comment": [
         {
           "id": 1720952864833,
@@ -527,7 +537,6 @@
           "userId": "3",
           "username": "kevinryan",
           "date": "14/7/2024"
-          
         },
         {
           "id": 1720952871581,
@@ -535,15 +544,22 @@
           "userId": "3",
           "username": "kevinryan",
           "date": "14/7/2024"
-         
         }
-      ],
-      "overallRate": 4.5
+      ]
     },
     {
       "id": "2",
       "userid": 2,
       "productId": 2,
+      "ratings": [
+        {
+          "userId": 1,
+          "rate": 4
+        },
+        {
+          "userId": 2
+        }
+      ],
       "comment": [
         {
           "id": 2,
@@ -593,10 +609,15 @@
           "userId": "3",
           "username": "kevinryan",
           "date": "14/7/2024"
+        },
+        {
+          "id": 1721009416289,
+          "text": "he\n",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "15/7/2024"
         }
-      ],
-      
-      "overallRate": null
+      ]
     },
     {
       "id": "1720756713091",
@@ -607,8 +628,7 @@
           "id": 1,
           "text": "kk"
         }
-      ],
-      "rate": 5
+      ]
     },
     {
       "id": "1720756990558",
@@ -623,8 +643,7 @@
           "id": 2,
           "text": "eqe"
         }
-      ],
-      "rate": 3
+      ]
     },
     {
       "id": "1720757022918",
@@ -639,8 +658,7 @@
           "id": 3,
           "text": ""
         }
-      ],
-      "rate": 5
+      ]
     }
   ]
 }

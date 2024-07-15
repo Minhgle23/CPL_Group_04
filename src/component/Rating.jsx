@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Rating = ({ rating, onRatingChange, editable = false }) => {
+
+const Rating = ({ rating, onRatingChange, editable }) => {
+  const [hoverRating, setHoverRating] = useState(0);
+  const stars = [1, 2, 3, 4, 5];
+
   return (
-    <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
-        index += 1;
-        return (
-          <span
-            key={index}
-            className={index <= rating ? "on" : "off"}
-            onClick={() => editable && onRatingChange(index)}
-            style={{ cursor: editable ? 'pointer' : 'default' }}
-          >
-            &#9733;
-          </span>
-        );
-      })}
+    <div className="rating">
+      {stars.map((star) => (
+        <span
+          key={star}
+          className={`star ${star <= (hoverRating || rating) ? 'filled' : ''}`}
+          onClick={() => editable && onRatingChange(star)}
+          onMouseEnter={() => editable && setHoverRating(star)}
+          onMouseLeave={() => editable && setHoverRating(0)}
+        >
+          ★
+        </span>
+      ))}
     </div>
   );
 };
