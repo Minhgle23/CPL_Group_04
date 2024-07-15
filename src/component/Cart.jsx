@@ -5,7 +5,7 @@ import CartContext from "./CartContext";
 
 const Cart = () => {
   const { cart, totalPrice, clearCart } = useContext(CartContext);
-
+  // const totalMoney = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice);
   return (
     <Container>
       <h2 className="text-center">Cart</h2>
@@ -49,7 +49,7 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
-      <h4>Total: {totalPrice} </h4>
+      <h4>Total: {totalPrice} $</h4>
       <p>include tax 8%</p>
       <Link to={"/cart/verify"} className="btn btn-primary">
         Buy

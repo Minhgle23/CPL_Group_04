@@ -4,13 +4,20 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   // Retrieve or generate user ID from local storage
-  const user = JSON.parse(localStorage.getItem('user')) || [];
-  const userId = parseInt(user.id);
-  console.log(userId);
+  const user = JSON.parse(localStorage.getItem('user')) || {};
+  const userId = user.id ? parseInt(user.id) : null;
+
   const [cart, setCart] = useState([]);
   const [totalCartItem, setTotalCartItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // Retrieve cart from localStorage on initial render
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCart(storedCart);
+  }, []);
+
+  // Fetch cart from API if userId exists
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -20,7 +27,6 @@ export const CartProvider = ({ children }) => {
         }
         const data = await response.json();
         const userCart = data.find(cart => cart.userId === userId);
-        console.log(userCart);
         if (userCart) {
           const formattedCart = userCart.totalProducts.map(item => ({
             ...item.product,
@@ -35,13 +41,10 @@ export const CartProvider = ({ children }) => {
 
     if (userId) {
       fetchCart();
-    } else {
-      const initialCart = [];
-      setCart(initialCart);
-      localStorage.setItem('cart', JSON.stringify(initialCart));
     }
   }, [userId]);
 
+  // Update cart totals and save cart to localStorage and API
   useEffect(() => {
     const newTotalCartItem = cart.reduce((acc, item) => acc + item.userQuantity, 0);
     const newTotalPrice = cart.reduce((acc, item) => {
@@ -163,4 +166,4 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export default CartContext;
+export default CartContext
