@@ -43,4 +43,5 @@ const ProductDetail = ({ user, isAuthenticated }) => {
       </div>
   );
 }
+
 export default ProductDetail
