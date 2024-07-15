@@ -1,0 +1,38 @@
+.product-card {
+  width: 100%;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-img {
+  height: 250px;
+  object-fit: contain;
+}
+
+.product-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.category-link {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
