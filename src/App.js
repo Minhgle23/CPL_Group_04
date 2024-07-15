@@ -1,3 +1,5 @@
+
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -14,25 +16,40 @@ import Cart from './component/Cart';
 import Verify from './component/common/Verify';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    console.log(storedUser);
+    if (storedUser) {
+      // const user = JSON.parse(storedUser);
+      setUser(JSON.parse(storedUser));
+      setIsAuthenticated(true);
+      // setUser(user);
+    }
+  }, []);
+  console.log(user);
+
   return (
     <CartProvider>
-      <BrowserRouter>
-        <CustomNavbar />
-        <Row>
-          <Col xs={12} sm={12} md={12}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<Product />} />
-              <Route path="/products/:id" element={<ProductDetail />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/cart" element={<Cart/>}/>
-              <Route path="/cart/verify" element={<Verify/>}/>
-            </Routes>
-          </Col>
-        </Row>
-      </BrowserRouter>
-    </CartProvider>
+    <BrowserRouter>
+      <Navbar user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
+      <Row>
+        <Col xs={12} sm={12} md={12}>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/products' element={<Product />} />
+            <Route path='/products/:id' element={<ProductDetail user={user} isAuthenticated={isAuthenticated}    />} />
+            <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/cart/verify" element={<Verify/>}/>
+          </Routes>
+        </Col>
+      </Row>
+    </BrowserRouter>
+</CartProvider>
   );
 }
 

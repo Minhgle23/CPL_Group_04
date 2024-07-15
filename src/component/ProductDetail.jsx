@@ -1,10 +1,12 @@
 
+
+import Comment from "./Comment";
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import { useState } from "react";
 import CartContext from "./CartContext";
 
-const ProductDetail = () => {
+const ProductDetail = ({ user, isAuthenticated }) => {
   const [product, setProduct] = useState({});
   const { addToCart } = useContext(CartContext);
   const { id } = useParams();
@@ -33,10 +35,13 @@ const ProductDetail = () => {
           >
             Add to cart
           </button>
+
           </div>
+
         </div>
+        <Comment productId={product.id} user={user} isAuthenticated={isAuthenticated} />
       </div>
-    
   );
 }
 export default ProductDetail
+

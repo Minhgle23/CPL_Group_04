@@ -4,9 +4,7 @@ import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 import CartContext from '../CartContext';
 
 function CustomNavbar() {
-  const [user, setUser] = useState(null);
-  const { totalCartItem } = useContext(CartContext);
-
+ 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -17,12 +15,14 @@ function CustomNavbar() {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    window.location.href = '/'; // Redirect to the main page after logout
+    setIsAuthenticated(false);
+    window.location.href = '/'; // Redirect to home page after logout
   };
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
+
         <Navbar.Brand as={Link} to="/">Ecommer</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
@@ -36,7 +36,7 @@ function CustomNavbar() {
             {user ? (
               <Dropdown align="end">
                 <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
-                  Hello, {user.name.firstname}
+                  Hello, {user.username && user.name.firstname}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item as={Link} to="/profile">View Profile</Dropdown.Item>
