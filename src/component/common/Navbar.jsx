@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
 import CartContext from '../CartContext';
 
-function CustomNavbar() {
- 
+function CustomNavbar({ user, setUser, setIsAuthenticated }) {
+  const {totalCartItem} = useContext(CartContext);
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
