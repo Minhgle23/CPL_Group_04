@@ -10,6 +10,8 @@ import Login from './component/Login';
 import Profile from './component/Profile';
 import { CartProvider } from './component/CartContext';
 import CustomNavbar from './component/common/Navbar';
+import Cart from './component/Cart';
+import Verify from './component/common/Verify';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/cart" element={<Cart/>}/>
+              <Route path="/cart/verify" element={<Verify/>}/>
             </Routes>
           </Col>
         </Row>
