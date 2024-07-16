@@ -14,6 +14,8 @@ import { CartProvider } from './component/CartContext';
 import Navbar from './component/common/Navbar';
 import Cart from './component/Cart';
 import Verify from './component/common/Verify';
+import Success from './component/common/Success';
+import FailTransaction from './component/common/FailTransaction';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,6 +47,8 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/cart/verify" element={<Verify/>}/>
+            <Route path="/success" element={<Success/>}/>
+            <Route path="/fail" element={<FailTransaction/>}/>
           </Routes>
         </Col>
       </Row>

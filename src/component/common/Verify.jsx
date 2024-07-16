@@ -6,7 +6,8 @@ import CartContext from '../CartContext';
 
 const Verify = () => {
   const [user, setUser] = useState(null);
-  const {totalPrice} = useContext(CartContext);
+  const {totalPrice, clearCart} = useContext(CartContext);
+  
   const [verifiedUser, setVerifiedUser] = useState({
     firstname: '',
     lastname: '',
@@ -43,7 +44,6 @@ const Verify = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(verifiedUser);
     
     const sendRequest = async () => {
       try {
@@ -60,9 +60,7 @@ const Verify = () => {
             street: verifiedUser.street
           }
         };
-        console.log(customerInfo);
         const products = JSON.parse(localStorage.getItem('cart'));
-        console.log(products);
         const date = moment().format('YYYY-MM-DD');
         const orderDetail = {
           orderDate: date,
@@ -70,14 +68,15 @@ const Verify = () => {
           products: products
         };
         
+        
         const response = await axios.post(`http://localhost:5000/api/create_payment_url`, {
-          amount: totalPrice,
-          bankCode: "",
+          amount: totalPrice*24000,
+          bankCode: "ncb",
           language: "vn",
           customer: customerInfo,
           products: products
         });
-
+        clearCart();
         window.location.href = `${response.data.redirectUrl}`;
       } catch (error) {
         alert("Đã xảy ra lỗi. Vui lòng thử lại sau.");
