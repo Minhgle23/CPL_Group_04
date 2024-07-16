@@ -6,7 +6,7 @@ import CartContext from '../CartContext';
 
 const Verify = () => {
   const [user, setUser] = useState(null);
-  const {totalPrice} = useContext(CartContext);
+  const {totalPrice, clearCart} = useContext(CartContext);
   
   const [verifiedUser, setVerifiedUser] = useState({
     firstname: '',
@@ -76,7 +76,7 @@ const Verify = () => {
           customer: customerInfo,
           products: products
         });
-
+        clearCart();
         window.location.href = `${response.data.redirectUrl}`;
       } catch (error) {
         alert("Đã xảy ra lỗi. Vui lòng thử lại sau.");
