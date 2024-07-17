@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "price": 109.95,
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
@@ -201,68 +201,12 @@
   ],
   "carts": [
     {
-      "id": 1,
-      "userId": 1,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 4
-        },
-        {
-          "productId": 2,
-          "quantity": 1
-        },
-        {
-          "productId": 3,
-          "quantity": 6
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 2
-        },
-        {
-          "productId": 9,
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": 3,
       "userId": 3,
-      "products": [
-        {
-          "productId": 7,
-          "quantity": 1
-        },
-        {
-          "productId": 8,
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "userId": 4,
-      "products": [
-        {
-          "productId": 10,
-          "quantity": 2
-        },
-        {
-          "productId": 12,
-          "quantity": 3
-        }
-      ]
+      "totalProducts": [],
+      "id": 1
     }
-   
   ],
-  "user": [
+  "users": [
     {
       "address": {
         "city": "kilcoole",
@@ -305,13 +249,13 @@
       "id": "3",
       "email": "kevin@gmail.com",
       "username": "kevinryan",
-      "password": "kev02937@",
+      "password": "kev02937",
       "name": {
         "firstname": "kevin",
         "lastname": "ryan"
       },
       "phone": "1-567-094-1345",
-      "role": "USER"
+      "role": "ADMIN"
     },
     {
       "address": {
@@ -329,6 +273,60 @@
       "phone": "1-765-789-6734",
       "role": "USER"
     }
+  ],
+  "reviews": [],
+  "detailOrders": [
+    {
+      "id": "16092534",
+      "OrderDate": "2024-07-16 09:25:34",
+      "Amount": 5028000,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A16092534",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "",
+        "name": {
+          "firstname": "kevin",
+          "lastname": "ryan"
+        },
+        "email": "kevin@gmail.com",
+        "phone": "1-567-094-1345",
+        "address": {
+          "city": "Cullmanh canh hẹ",
+          "street": "Frances Ct"
+        }
+      },
+      "products": [
+        {
+          "id": 20,
+          "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+          "price": 12.99,
+          "description": "95% Cotton, 5% Spandex, Features: Casual, Short Sleeve, Letter Print, V-Neck, Fashion Tees, The fabric is soft and has some stretch. Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring, Summer, Autumn, Winter.",
+          "category": 4,
+          "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+          "quantity": 30,
+          "userQuantity": 1
+        },
+        {
+          "id": 20,
+          "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+          "price": 12.99,
+          "description": "95% Cotton, 5% Spandex, Features: Casual, Short Sleeve, Letter Print, V-Neck, Fashion Tees, The fabric is soft and has some stretch. Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring, Summer, Autumn, Winter.",
+          "category": 4,
+          "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+          "quantity": 30,
+          "userQuantity": 1
+        },
+        {
+          "id": 6,
+          "title": "Solid Gold Petite Micropave",
+          "price": 168,
+          "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 1
+        }
+      ]
+    }
   ]
 }
-

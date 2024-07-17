@@ -1,10 +1,12 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ setIsAuthenticated, setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,11 +18,11 @@ const Login = () => {
       const user = users.find((u) => u.username === username && u.password === password);
 
       if (user) {
-        // Lưu thông tin người dùng vào localStorage hoặc context nếu cần
         localStorage.setItem('user', JSON.stringify(user));
+        setUser(user);
+        setIsAuthenticated(true);
         alert('Login successful');
-        // Chuyển hướng đến trang chính hoặc trang mong muốn
-        window.location.href = '/'; // Chuyển hướng bằng cách thay đổi URL
+        navigate('/'); // Redirect to home page after login
       } else {
         setError('Invalid username or password');
       }
