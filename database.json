@@ -253,13 +253,13 @@
       "id": "3",
       "email": "kevin@gmail.com",
       "username": "kevinryan",
-      "password": "kev02937@",
+      "password": "kev02937",
       "name": {
         "firstname": "kevin",
         "lastname": "ryan"
       },
       "phone": "1-567-094-1345",
-      "role": "USER"
+      "role": "ADMIN"
     },
     {
       "address": {

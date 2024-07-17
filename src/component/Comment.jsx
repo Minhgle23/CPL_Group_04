@@ -45,9 +45,11 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
       alert("Comment cannot be empty or contain special characters.");
       return;
     }
+
     let tempid = new Date().getTime()
     const newCommentObject = {
       id: tempid.toString(),
+
       text: newComment,
       userId: user.id,
       username: user.username,
@@ -76,6 +78,7 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
               setNewComment("");
             });
         } else {
+
           let tempid = new Date().getTime();
           const newReview = {
             id: tempid.toString(),
