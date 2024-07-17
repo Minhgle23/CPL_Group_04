@@ -8,7 +8,6 @@ import HomeReco from "./common/HomeReco";
 function Home() {
   return (
     <Container>
-
       <Row>
         <Homeheader />
       </Row>
