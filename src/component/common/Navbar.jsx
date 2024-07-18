@@ -1,35 +1,46 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Dropdown, Button } from 'react-bootstrap';
-import CartContext from '../CartContext';
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Container, Dropdown, Button } from "react-bootstrap";
+import CartContext from "../CartContext";
 
 function CustomNavbar({ user, setUser, setIsAuthenticated }) {
-
   const { totalCartItem } = useContext(CartContext);
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     setUser(null);
     setIsAuthenticated(false);
-    window.location.href = '/'; // Redirect to home page after logout
+    window.location.href = "/"; // Redirect to home page after logout
   };
 
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-
-        <Navbar.Brand as={Link} to="/">Ecommer</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Ecommer
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/products">Products</Nav.Link>
+            {
+              user?.role == "ADMIN" ? (
+                <Nav.Link as={Link} to="/dashboard">
+                  Dashboard
+                </Nav.Link>
+              ) : (<Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>)
+            }
+            
+            <Nav.Link as={Link} to="/products">
+              Products
+            </Nav.Link>
             <Nav.Link href="#">Contact</Nav.Link>
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
@@ -40,7 +51,9 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                   Hello, {user.username && user.name.firstname}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/profile">View Profile</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/profile">
+                    View Profile
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -50,11 +63,15 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
               </Button>
             )}
           </Nav>
-          <Nav>
+
+          {user?.role != "ADMIN" ? (
             <Button variant="outline-dark" as={Link} to="/cart">
               <i className="fa fa-shopping-cart"></i> Cart({totalCartItem})
             </Button>
-          </Nav>
+          ) : (
+            <div></div>
+          )}
+          <Nav></Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
