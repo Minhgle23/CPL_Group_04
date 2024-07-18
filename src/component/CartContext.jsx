@@ -1,14 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const user = JSON.parse(localStorage.getItem('user')) || {};
   const userId = user.id ? parseInt(user.id) : null;
-
   const [cart, setCart] = useState([]);
   const [totalCartItem, setTotalCartItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const location = useLocation(); // Lấy URL hiện tại
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -45,7 +46,7 @@ export const CartProvider = ({ children }) => {
     const newTotalCartItem = cart.reduce((acc, item) => acc + item.userQuantity, 0);
     const newTotalPrice = cart.reduce((acc, item) => {
       const totalProductPrice = item.price * item.userQuantity;
-      const tax = totalProductPrice * 0.08;
+      const tax = Math.floor(totalProductPrice * 0.08);
       return acc + totalProductPrice + tax;
     }, 0);
 
@@ -135,7 +136,14 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
+    localStorage.removeItem('cart'); // Xóa giỏ hàng khỏi localStorage
   };
+
+  useEffect(() => {
+    if (location.pathname === '/success') {
+      clearCart();
+    }
+  }, [location]);
 
   return (
     <CartContext.Provider value={{ cart, totalCartItem, totalPrice, addToCart, clearCart }}>

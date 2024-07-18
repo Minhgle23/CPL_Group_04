@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import Homeheader from "./common/Homeheader";
 import HomeTitle from "./common/HomeTitle";
 import HomeReco from "./common/HomeReco";
+import HomeBlog from "./common/HomeBlog";
 
 
 function Home() {
@@ -15,7 +16,7 @@ function Home() {
         <HomeTitle />
         <HomeReco/>
       </Row>
-      <Homeheader/>
+      <HomeBlog/>
  
     </Container>
   );
