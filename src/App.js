@@ -18,6 +18,9 @@ import Success from './component/common/Success';
 import FailTransaction from './component/common/FailTransaction';
 import AdminHome from './component/common/AdminHome';
 import AdminRoute from './component/AdminRoute';
+import AdminCreateBlog from './component/Admin/AdminCreateBlog';
+import BlogList from './component/BlogList';
+import BlogDetail from './component/BlogDetail';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -37,8 +40,9 @@ function App() {
 
 
   return (
-    <CartProvider>
     <BrowserRouter>
+    <CartProvider>
+    
       <Navbar user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
       <Row>
         <Col xs={12} sm={12} md={12}>
@@ -52,12 +56,17 @@ function App() {
             <Route path="/cart/verify" element={<Verify/>}/>
             <Route path="/success" element={<Success/>}/>
             <Route path="/fail" element={<FailTransaction/>}/>
+            <Route path="/blogs" element={<BlogList/>}/>
+            <Route path="/blogs/:blogId" element={<BlogDetail/>}/>
             <Route path="/dashboard" element={<AdminRoute Component={AdminHome}/>}/>
+            <Route path="/manage/blogs/add" element={<AdminRoute Component={AdminCreateBlog}/>}/>
+            {/* <Route path="/manage/blogs" element={<AdminRoute Component={AdminViewBlog}/>}/>             */}
           </Routes>
         </Col>
       </Row>
-    </BrowserRouter>
+    
 </CartProvider>
+</BrowserRouter>
   );
 }
 

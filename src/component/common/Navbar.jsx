@@ -28,9 +28,15 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            {
+              (!user && user?.role != "ADMIN") ?
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              :
+              <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+            }
+           
             <Nav.Link as={Link} to="/products">Products</Nav.Link>
-            <Nav.Link href="#">Contact</Nav.Link>
+            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
           <Nav>

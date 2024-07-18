@@ -16,13 +16,18 @@ const Login = ({ setIsAuthenticated, setUser }) => {
       const users = await response.json();
 
       const user = users.find((u) => u.username === username && u.password === password);
-
+      console.log(user.role);
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
         setIsAuthenticated(true);
         alert('Login successful');
-        navigate('/'); // Redirect to home page after login
+        if(user?.role == "ADMIN" ){
+          navigate('/dashboard');
+        }else{
+          navigate('/');
+        }
+        
       } else {
         setError('Invalid username or password');
       }

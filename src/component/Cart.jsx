@@ -1,11 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { Button, Container, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "./CartContext";
 
 const Cart = () => {
   const { cart, totalPrice, clearCart } = useContext(CartContext);
-  // const totalMoney = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalPrice);
+  const navigate = useNavigate();
+
+  const handleBuy = () => {
+    if (cart.length === 0) {
+      alert("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng.");
+      navigate('/');
+    } else {
+      navigate('/cart/verify');
+    }
+  };
+
   return (
     <Container>
       <h2 className="text-center">Cart</h2>
@@ -51,9 +61,9 @@ const Cart = () => {
       </Table>
       <h4>Total: {totalPrice} $</h4>
       <p>include tax 8%</p>
-      <Link to={"/cart/verify"} className="btn btn-primary">
+      <Button onClick={handleBuy} className="btn btn-primary">
         Buy
-      </Link>
+      </Button>
     </Container>
   );
 };
