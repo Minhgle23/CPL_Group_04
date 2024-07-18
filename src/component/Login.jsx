@@ -22,12 +22,14 @@ const Login = ({ setIsAuthenticated, setUser }) => {
         setUser(user);
         setIsAuthenticated(true);
         alert('Login successful');
-        if(user?.role == "ADMIN" ){
+
+        if(user?.role == "ADMIN"){
           navigate('/dashboard');
         }else{
-          navigate('/');
+          navigate('/'); 
         }
-        
+        // Redirect to home page after login
+
       } else {
         setError('Invalid username or password');
       }
