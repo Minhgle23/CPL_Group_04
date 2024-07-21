@@ -2,12 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
 import CartContext from '../CartContext';
 
 const Verify = () => {
   const [user, setUser] = useState(null);
-  const {totalPrice, clearCart} = useContext(CartContext);
-  
+  const { totalPrice, clearCart } = useContext(CartContext);
+  console.log(totalPrice * 24000);
+  const localCart = JSON.parse(localStorage.getItem('cart')) || [];
   const [verifiedUser, setVerifiedUser] = useState({
     firstname: '',
     lastname: '',
@@ -17,9 +19,10 @@ const Verify = () => {
     street: ''
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user')) || {};
-    
     if (storedUser) {
       setUser(storedUser);
       setVerifiedUser({
@@ -33,7 +36,6 @@ const Verify = () => {
     }
   }, []);
 
-  console.log(verifiedUser);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVerifiedUser({
@@ -44,7 +46,13 @@ const Verify = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    if (localCart.length === 0) {
+      alert("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng.");
+      navigate('/');
+      return;
+    }
+
     const sendRequest = async () => {
       try {
         const customerInfo = {
@@ -60,28 +68,26 @@ const Verify = () => {
             street: verifiedUser.street
           }
         };
-        const products = JSON.parse(localStorage.getItem('cart'));
         const date = moment().format('YYYY-MM-DD');
         const orderDetail = {
           orderDate: date,
           customer: customerInfo,
-          products: products
+          products: localCart
         };
-        
-        
+
         const response = await axios.post(`http://localhost:5000/api/create_payment_url`, {
-          amount: totalPrice*24000,
+          amount: totalPrice * 24000,
           bankCode: "ncb",
           language: "vn",
           customer: customerInfo,
-          products: products
+          products: localCart
         });
-        clearCart();
         window.location.href = `${response.data.redirectUrl}`;
       } catch (error) {
         alert("Đã xảy ra lỗi. Vui lòng thử lại sau.");
       }
     };
+
     sendRequest();
   };
 
@@ -163,6 +169,4 @@ const Verify = () => {
   );
 };
 
-
 export default Verify;
-
