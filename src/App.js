@@ -25,6 +25,8 @@ import CategoryList from "./component/CategoryList";
 import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserList from "./component/common/UserList";
+import UserProfile from "./component/common/UserProfile";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -114,6 +116,8 @@ function App() {
                 path="/manage/category/edit/:id"
                 element={<AdminRoute Component={EditCategory} />}
               />
+              <Route path="/manage/customers" element={<UserList />} />
+              <Route path="/manage/customer/view/:id" element={<UserProfile />} />
             </Routes>
             <ToastContainer />
           </Col>
