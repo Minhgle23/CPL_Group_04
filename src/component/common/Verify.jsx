@@ -8,9 +8,10 @@ import CartContext from '../CartContext';
 const Verify = () => {
   const [user, setUser] = useState(null);
   const { totalPrice, clearCart } = useContext(CartContext);
-  console.log(totalPrice * 24000);
+  
   const localCart = JSON.parse(localStorage.getItem('cart')) || [];
   const [verifiedUser, setVerifiedUser] = useState({
+    id: '',
     firstname: '',
     lastname: '',
     email: '',
@@ -18,6 +19,7 @@ const Verify = () => {
     city: '',
     street: ''
   });
+  console.log(verifiedUser);
 
   const navigate = useNavigate();
 
@@ -26,6 +28,7 @@ const Verify = () => {
     if (storedUser) {
       setUser(storedUser);
       setVerifiedUser({
+        id: storedUser.id || '',
         firstname: storedUser.name?.firstname,
         lastname: storedUser.name?.lastname,
         email: storedUser.email,
@@ -54,6 +57,7 @@ const Verify = () => {
     }
 
     const sendRequest = async () => {
+
       try {
         const customerInfo = {
           id: verifiedUser.id || '',
@@ -69,11 +73,6 @@ const Verify = () => {
           }
         };
         const date = moment().format('YYYY-MM-DD');
-        const orderDetail = {
-          orderDate: date,
-          customer: customerInfo,
-          products: localCart
-        };
 
         const response = await axios.post(`http://localhost:5000/api/create_payment_url`, {
           amount: totalPrice * 24000,

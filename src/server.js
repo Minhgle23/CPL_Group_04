@@ -46,7 +46,7 @@ router.post('/create_payment_url', function (req, res, next) {
     vnp_Params['vnp_TxnRef'] = orderId;
     vnp_Params['vnp_OrderInfo'] = 'Thanh toan cho ma GD:' + orderId;
     vnp_Params['vnp_OrderType'] = 'other';
-    vnp_Params['vnp_Amount'] = amount;
+    vnp_Params['vnp_Amount'] = amount*100;
     vnp_Params['vnp_ReturnUrl'] = returnUrl;
     vnp_Params['vnp_IpAddr'] = ipAddr;
     vnp_Params['vnp_CreateDate'] = createDate;
@@ -74,7 +74,8 @@ router.post('/create_payment_url', function (req, res, next) {
                 OrderInfo: vnp_Params['vnp_OrderInfo'],
                 bankCode: bankCode,
                 customer: customer,
-                products: products
+                products: products,
+                status: false
             };
             await axios.post('http://localhost:9999/detailOrders', order);
         } catch (error) {
@@ -87,9 +88,11 @@ router.post('/create_payment_url', function (req, res, next) {
     saveToDb();
 });
 
-router.get('/vnpay_return', function (req, res, next) {
+router.get('/vnpay_return', async function (req, res, next) {
     let vnp_Params = req.query;
     let secureHash = vnp_Params['vnp_SecureHash'];
+    let vnp_ResponseCode = vnp_Params['vnp_ResponseCode'];
+    
     delete vnp_Params['vnp_SecureHash'];
     delete vnp_Params['vnp_SecureHashType'];
 
@@ -103,32 +106,35 @@ router.get('/vnpay_return', function (req, res, next) {
     let signData = querystring.stringify(vnp_Params, { encode: false });
     let crypto = require("crypto");
     let hmac = crypto.createHmac("sha512", secretKey);
-    let signed = hmac.update(new Buffer(signData, 'utf-8')).digest("hex");
-
+    let signed = hmac.update(Buffer.from(signData, 'utf-8')).digest("hex");
+    
     if (secureHash === signed) {
         const orderId = vnp_Params['vnp_TxnRef'];
-        const getData = async () => {
-            const response = await axios.get(`http://localhost:9999/detailOrders/${orderId}`)
-                .then(response => {
-                    return response.data;
-                })
-                .catch(error => {
-                    console.log(error);
-                })
+        
+        try {
+            const response = await axios.get(`http://localhost:9999/detailOrders/${orderId}`);
+            const orderInfo = response.data;
 
-        }
-        const orderInfo = getData();
-        console.log(orderInfo);
-        if (orderInfo) {
-
-            res.redirect(`http://localhost:3000/success`);
-        } else {
+            if (orderInfo) {
+                if (vnp_ResponseCode === '00') {
+                    // Update order status to true
+                    await axios.patch(`http://localhost:9999/detailOrders/${orderId}`, { status: true });
+                    res.redirect(`http://localhost:3000/success`);
+                } else {
+                    res.redirect('http://localhost:3000/fail');
+                }
+            } else {
+                res.redirect('http://localhost:3000/fail');
+            }
+        } catch (error) {
+            console.log(error);
             res.redirect('http://localhost:3000/fail');
         }
     } else {
         res.redirect('http://localhost:3000/fail');
     }
 });
+
 app.use('/api', router);
 
 const PORT = process.env.PORT || 5000;
