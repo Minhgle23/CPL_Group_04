@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Row, Col } from "react-bootstrap";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes, useLocation } from "react-router-dom";
 import Home from "./component/Home";
 import Product from "./component/Product";
 import ProductDetail from "./component/ProductDetail";
@@ -34,30 +33,21 @@ import AdminManageBlog from "./component/Admin/AdminManageBlog";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    console.log(storedUser);
     if (storedUser) {
-      // const user = JSON.parse(storedUser);
       setUser(JSON.parse(storedUser));
       setIsAuthenticated(true);
-      // setUser(user);
     }
   }, []);
 
+  const noNavbarPaths = ["/login", "/profile"];
+
   return (
-
-    <BrowserRouter>
       <CartProvider>
-
-        {user?.role !== "ADMIN" ? (
-          <Navbar
-            user={user}
-            setUser={setUser}
-            setIsAuthenticated={setIsAuthenticated}
-          />
-        ) : (
+        {!noNavbarPaths.includes(location.pathname) && (
           <Navbar
             user={user}
             setUser={setUser}
@@ -70,24 +60,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Product />} />
-              <Route
-                path="/products/:id"
-                element={
-                  <ProductDetail
-                    user={user}
-                    isAuthenticated={isAuthenticated}
-                  />
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <Login
-                    setIsAuthenticated={setIsAuthenticated}
-                    setUser={setUser}
-                  />
-                }
-              />
+              <Route path="/products/:id" element={<ProductDetail user={user} isAuthenticated={isAuthenticated} />}/>
+              <Route path="/login"  element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}/>
               <Route path="/profile" element={<Profile />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/cart/verify" element={<Verify />} />
@@ -109,7 +83,6 @@ function App() {
           </Col>
         </Row>
       </CartProvider>
-    </BrowserRouter>
 
   );
 }
