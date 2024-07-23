@@ -6,42 +6,40 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const user = JSON.parse(localStorage.getItem('user')) || {};
   const userId = user.id ? parseInt(user.id) : null;
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
   const [totalCartItem, setTotalCartItem] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const location = useLocation(); // Lấy URL hiện tại
+  const location = useLocation();
 
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
-    setCart(storedCart);
-  }, []);
 
+  // Fetch cart data from API if user is logged in
   useEffect(() => {
     const fetchCart = async () => {
-      try {
-        const response = await fetch('http://localhost:9999/carts');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+      if (userId) {
+        try {
+          const response = await fetch('http://localhost:9999/carts');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          const userCart = data.find(cart => cart.userId === userId);
+          if (userCart) {
+            const formattedCart = userCart.totalProducts.map(item => ({
+              ...item.product,
+              userQuantity: item.quantity,
+            }));
+            setCart(formattedCart);
+          }
+        } catch (error) {
+          console.error('Error fetching cart data:', error);
         }
-        const data = await response.json();
-        const userCart = data.find(cart => cart.userId === userId);
-        if (userCart) {
-          const formattedCart = userCart.totalProducts.map(item => ({
-            ...item.product,
-            userQuantity: item.quantity,
-          }));
-          setCart(formattedCart);
-        }
-      } catch (error) {
-        console.error('Error fetching cart data:', error);
       }
     };
 
-    if (userId) {
-      fetchCart();
-    }
+    fetchCart();
   }, [userId]);
 
+  // Update total cart items and total price whenever the cart changes
   useEffect(() => {
     const newTotalCartItem = cart.reduce((acc, item) => acc + item.userQuantity, 0);
     const newTotalPrice = cart.reduce((acc, item) => {
@@ -52,8 +50,11 @@ export const CartProvider = ({ children }) => {
 
     setTotalCartItem(newTotalCartItem);
     setTotalPrice(newTotalPrice.toFixed(2));
+
+    // Save cart data to local storage
     localStorage.setItem('cart', JSON.stringify(cart));
 
+    // Save or update cart in API if user is logged in
     if (userId) {
       saveOrUpdateCartInAPI(cart);
     }
@@ -134,9 +135,34 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const clearCart = () => {
+  const clearCart = async () => {
+    if (userId) {
+      try {
+        const response = await fetch('http://localhost:9999/carts');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        const existingCart = data.find(cart => cart.userId === userId);
+
+        if (existingCart) {
+          const deleteResponse = await fetch(`http://localhost:9999/carts/${existingCart.id}`, {
+            method: 'DELETE',
+          });
+
+          if (!deleteResponse.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          console.log('Cart deleted from API');
+        }
+      } catch (error) {
+        console.error('Error deleting cart from API:', error);
+      }
+    }
+
     setCart([]);
-    localStorage.removeItem('cart'); // Xóa giỏ hàng khỏi localStorage
+    localStorage.removeItem('cart');
   };
 
   useEffect(() => {

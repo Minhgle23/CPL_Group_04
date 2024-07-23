@@ -21,7 +21,6 @@ import AdminRoute from './component/AdminRoute';
 import AdminCreateBlog from './component/Admin/AdminCreateBlog';
 import BlogList from './component/BlogList';
 import BlogDetail from './component/BlogDetail';
-import AdminRoute from "./component/AdminRoute";
 import AddProduct from "./component/AddProduct";
 import ProductList from "./component/ProductList";
 import EditProduct from "./component/EditProduct";
@@ -30,6 +29,7 @@ import CategoryList from "./component/CategoryList";
 import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminManageBlog from "./component/Admin/AdminManageBlog";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,35 +49,8 @@ function App() {
   return (
 
     <BrowserRouter>
-    <CartProvider>
-    
-      <Navbar user={user} setUser={setUser} setIsAuthenticated={setIsAuthenticated} />
-      <Row>
-        <Col xs={12} sm={12} md={12}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/products' element={<Product />} />
-            <Route path='/products/:id' element={<ProductDetail user={user} isAuthenticated={isAuthenticated}    />} />
-            <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/cart/verify" element={<Verify/>}/>
-            <Route path="/success" element={<Success/>}/>
-            <Route path="/fail" element={<FailTransaction/>}/>
-            <Route path="/blogs" element={<BlogList/>}/>
-            <Route path="/blogs/:blogId" element={<BlogDetail/>}/>
-            <Route path="/dashboard" element={<AdminRoute Component={AdminHome}/>}/>
-            <Route path="/manage/blogs/add" element={<AdminRoute Component={AdminCreateBlog}/>}/>
-            {/* <Route path="/manage/blogs" element={<AdminRoute Component={AdminViewBlog}/>}/>             */}
-          </Routes>
-        </Col>
-      </Row>
-    
-</CartProvider>
-</BrowserRouter>
+      <CartProvider>
 
-    <CartProvider>
-      <BrowserRouter>
         {user?.role !== "ADMIN" ? (
           <Navbar
             user={user}
@@ -120,45 +93,23 @@ function App() {
               <Route path="/cart/verify" element={<Verify />} />
               <Route path="/success" element={<Success />} />
               <Route path="/fail" element={<FailTransaction />} />
-              <Route
-                path="/dashboard"
-                element={<AdminRoute Component={AdminHome} />}
-              />
-              <Route
-                path="/manage/product"
-                element={<AdminRoute Component={ProductList} />}
-              />
-              <Route
-                path="/manage/add-product"
-                element={<AdminRoute Component={AddProduct} />}
-              />
-              <Route
-                path="/manage/product/edit/:id"
-                element={<AdminRoute Component={EditProduct} />}
-              />
-
-              <Route
-                path="/manage/categories"
-                element={<AdminRoute Component={CategoryList} />}
-              />
-              <Route
-                path="/manage/add-category"
-                element={<AdminRoute Component={AddCategory} />}
-              />
-              <Route
-                path="/manage/category/edit/:id"
-                element={<AdminRoute Component={EditCategory} />}
-              />
-            <Route path="/blogs" element={<BlogList/>}/>
-            <Route path="/blogs/:blogId" element={<BlogDetail/>}/>
-            <Route path="/manage/blogs/add" element={<AdminRoute Component={AdminCreateBlog}/>}/>
-            {/* <Route path="/manage/blogs" element={<AdminRoute Component={AdminViewBlog}/>}/>             */}
+              <Route path="/dashboard" element={<AdminRoute Component={AdminHome} />}/>
+              <Route path="/manage/product" element={<AdminRoute Component={ProductList} />}/>
+              <Route path="/manage/add-product" element={<AdminRoute Component={AddProduct} />}/>
+              <Route path="/manage/product/edit/:id" element={<AdminRoute Component={EditProduct} />}/>
+              <Route path="/manage/categories" element={<AdminRoute Component={CategoryList} />}/>
+              <Route path="/manage/add-category" element={<AdminRoute Component={AddCategory} />}/>
+              <Route path="/manage/category/edit/:id" element={<AdminRoute Component={EditCategory} />}/>
+              <Route path="/blogs" element={<BlogList />} />
+              <Route path="/blogs/:blogId" element={<BlogDetail />} />
+              <Route path="/manage/blogs/add" element={<AdminRoute Component={AdminCreateBlog} />} />
+              <Route path="/manage/blogs" element={<AdminRoute Component={AdminManageBlog}/>}/>            
             </Routes>
             <ToastContainer />
           </Col>
         </Row>
-      </BrowserRouter>
-    </CartProvider>
+      </CartProvider>
+    </BrowserRouter>
 
   );
 }
