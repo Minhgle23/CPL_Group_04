@@ -27,6 +27,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UserList from "./component/common/UserList";
 import UserProfile from "./component/common/UserProfile";
+import RegistrationForm from "./component/Register";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -80,6 +81,12 @@ function App() {
                     setIsAuthenticated={setIsAuthenticated}
                     setUser={setUser}
                   />
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <RegistrationForm/>
                 }
               />
               <Route path="/profile" element={<Profile />} />
