@@ -210,7 +210,7 @@
       "id": "1"
     },
     {
-      "userId": 4,
+      "userId": 1,
       "totalProducts": [
         {
           "product": {
@@ -224,7 +224,24 @@
           "quantity": 2
         }
       ],
-      "id": "nUpTMN3"
+      "id": "288CjMh"
+    },
+    {
+      "userId": 4,
+      "totalProducts": [
+        {
+          "product": {
+            "id": "6",
+            "title": "Solid Gold Petite Micropave",
+            "price": 168,
+            "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+            "category": 2,
+            "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+          },
+          "quantity": 2
+        }
+      ],
+      "id": "E4wxGsm"
     }
   ],
   "users": [
@@ -236,7 +253,7 @@
       "id": "1",
       "email": "john@gmail.com",
       "username": "johnd",
-      "password": "m38rmF$",
+      "password": "m38rmF",
       "name": {
         "firstname": "john",
         "lastname": "doe"
@@ -298,29 +315,114 @@
   "reviews": [],
   "detailOrders": [
     {
-      "id": "17154041",
-      "OrderDate": "2024-07-17 15:40:57",
-      "Amount": 3070560,
-      "OrderInfo": "Thanh+toan+cho+ma+GD%3A17154041",
-      "bankCode": "NCB"
+      "id": "23095808",
+      "OrderDate": "2024-07-23 09:58:08",
+      "Amount": 503520,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23095808",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "1",
+        "name": {
+          "firstname": "john",
+          "lastname": "doe"
+        },
+        "email": "john@gmail.com",
+        "phone": "1-570-236-7033",
+        "address": {
+          "city": "kilcoole",
+          "street": "new road"
+        }
+      },
+      "products": [
+        {
+          "id": "7",
+          "title": "White Gold Plated Princess",
+          "price": 9.99,
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "userQuantity": 2
+        }
+      ],
+      "status": false
     },
     {
-      "id": "17154416",
-      "OrderDate": "2024-07-17 15:44:33",
-      "Amount": 3070560,
-      "OrderInfo": "Thanh+toan+cho+ma+GD%3A17154416",
-      "bankCode": "NCB"
+      "id": "23095934",
+      "OrderDate": "2024-07-23 09:59:34",
+      "Amount": 767280,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23095934",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "4",
+        "name": {
+          "firstname": "don",
+          "lastname": "romer"
+        },
+        "email": "don@gmail.com",
+        "phone": "1-765-789-6734",
+        "address": {
+          "city": "San Antonio",
+          "street": "Hunters Creek Dr"
+        }
+      },
+      "products": [
+        {
+          "id": "7",
+          "title": "White Gold Plated Princess",
+          "price": 9.99,
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "userQuantity": 2
+        },
+        {
+          "id": "8",
+          "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "price": 10.99,
+          "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 1
+        }
+      ],
+      "status": true
+    },
+    {
+      "id": "23100012",
+      "OrderDate": "2024-07-23 10:00:12",
+      "Amount": 8688000,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23100012",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "4",
+        "name": {
+          "firstname": "don",
+          "lastname": "romer"
+        },
+        "email": "don@gmail.com",
+        "phone": "1-765-789-6734",
+        "address": {
+          "city": "San Antonio",
+          "street": "Hunters Creek Dr"
+        }
+      },
+      "products": [
+        {
+          "id": "6",
+          "title": "Solid Gold Petite Micropave",
+          "price": 168,
+          "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 2
+        }
+      ],
+      "status": false
     }
   ],
   "blog": [
-    {
-      "id": "1",
-      "data": "abc",
-      "title": "life time",
-      "brief": "short",
-      "image": "",
-      "dateCreate": "17/7/2024"
-    },
     {
       "id": "1721288038541",
       "title": "The old life",
@@ -337,7 +439,7 @@
       "brief": "why this is vabasbd",
       "image": "them2.jpeg",
       "dateCreate": "2024-07-18T08:03:11.774Z",
-      "status": true
+      "status": false
     },
     {
       "id": "1721289791807",
@@ -346,7 +448,7 @@
       "brief": "why this is vabasbd",
       "image": "them2.jpeg",
       "dateCreate": "2024-07-18T08:03:11.807Z",
-      "status": true
+      "status": false
     },
     {
       "id": "1721290844691",
@@ -355,6 +457,15 @@
       "brief": "test",
       "image": "tulanh1.jpg",
       "dateCreate": "2024-07-18T08:20:44.691Z",
+      "status": false
+    },
+    {
+      "id": "1721293770076",
+      "title": "tessss1",
+      "data": "<p><img src=\"https://cdn.shopify.com/s/files/1/0070/7032/files/floof-cake.jpg?v=1713368617\" height={'100px'} alt=\"A slice of Floof rainbow cotton candy cake\"></p><p><strong>Getting my big break:</strong></p><p><span style=\"background-color: var(--bs-body-bg); font-weight: var(--bs-body-font-weight);\">I w</span>as sick of explaining how to care for your cake, so I put together this little instructional video.</p><p>The video wasn’t meant for everyone—it was meant for the people who ordered a cake. So it was a huge surprise when it went&nbsp;<a href=\"https://www.shopify.com/blog/how-to-go-viral-on-tiktok\" rel=\"noopener noreferrer\" target=\"_blank\">viral on TikTok</a>. The amount of comments and emails from people wanting one was insane.</p><p>At this point, I was experimenting with&nbsp;<a href=\"https://www.shopify.com/blog/shipping-and-fulfillment\" rel=\"noopener noreferrer\" target=\"_blank\">shipping</a>, but most of it was just local. I didn’t have a shipping setup on my store yet—it was all through email. It was madness. I felt so overwhelmed and so excited all at the same time.&nbsp;</p><p>It was crazy, but I couldn’t stop. I knew that this was my time and that trends can burn out. And it was hot right now and I didn’t want to lose that opportunity.</p><p><strong>Biggest celeb encounter:</strong></p><p>It was midnight and I got an email. It was from Charlize Theron’s house manager. She said, “Her son saw your cakes on TikTok and just loves them. He has a food allergy, so this is absolutely perfect for him. We know that you’re sold out, but I’m really wondering if we can make this work, if you could send us a cake.”</p><p>And it hit me so hard that I had built a business where people really wanted this and it was sold out. I remember sitting on a stoop and crying and finally, for maybe the first time, feeling like I was so proud of myself.</p><p><span>The most challenging part of becoming an entrepreneur:</span></p><p>With the business side of things, it was completely overwhelming. I had never taken any sort of business classes. It was not my thing and not my strength. And I think that is exactly what stops people from starting their business.</p><p>Now that I had this product and people wanted it, it came along with so much other boring stuff. I had done the fun part and now I had to deal with the numbers.</p><p>In the beginning, my list was so insanely long. There was just no way of getting through it every day. You’re raising babies and trying to just get through, make product, and somehow you’re supposed to call the state tax franchise board for your seller’s permit number.</p><p><span>My favorite part of running my business:</span></p><p>I love my cotton candy cart. It’s not my main source of income, but I love having it because events are where I started and I find so much joy being out in the&nbsp;<a href=\"https://www.shopify.com/blog/building-community\" rel=\"noopener noreferrer\" target=\"_blank\">community</a>, being at weddings, and meeting people. Being around people gives me energy. It’s just magical.</p><p><br></p>",
+      "brief": "231231231231",
+      "image": "about.png",
+      "dateCreate": "2024-07-18T09:09:30.076Z",
       "status": true
     }
   ]

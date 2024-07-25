@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, Dropdown, Button } from "react-bootstrap";
 import CartContext from "../CartContext";
 
 function CustomNavbar({ user, setUser, setIsAuthenticated }) {
-  const { totalCartItem } = useContext(CartContext);
+  const { totalCartItem, clearCart } = useContext(CartContext);
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -14,6 +14,7 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    clearCart();
     setUser(null);
     setIsAuthenticated(false);
     window.location.href = "/"; // Redirect to home page after logout
@@ -42,7 +43,7 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
             <Nav.Link as={Link} to="/products">
               Products
             </Nav.Link>
-            <Nav.Link href="#">Contact</Nav.Link>
+            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
 
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
