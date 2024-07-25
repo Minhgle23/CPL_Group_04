@@ -121,7 +121,7 @@
       "id": "14",
       "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED",
       "price": 999.99,
-      "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+      "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, hjhgjh",
       "category": 1,
       "image": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
       "quantity": 30
@@ -227,21 +227,65 @@
       "id": "288CjMh"
     },
     {
-      "userId": 4,
+      "userId": 2,
+      "totalProducts": [],
+      "id": "piWYxGf"
+    },
+    {
+      "userId": 2,
       "totalProducts": [
         {
           "product": {
-            "id": "6",
-            "title": "Solid Gold Petite Micropave",
-            "price": 168,
-            "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+            "id": "7",
+            "title": "White Gold Plated Princess",
+            "price": 9.99,
+            "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
             "category": 2,
-            "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+            "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
           },
           "quantity": 2
+        },
+        {
+          "product": {
+            "id": "8",
+            "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+            "price": 10.99,
+            "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+            "category": 2,
+            "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+          },
+          "quantity": 1
         }
       ],
-      "id": "E4wxGsm"
+      "id": "wLHKnY_"
+    },
+    {
+      "userId": 2,
+      "totalProducts": [
+        {
+          "product": {
+            "id": "7",
+            "title": "White Gold Plated Princess",
+            "price": 9.99,
+            "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+            "category": 2,
+            "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+          },
+          "quantity": 2
+        },
+        {
+          "product": {
+            "id": "8",
+            "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+            "price": 10.99,
+            "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+            "category": 2,
+            "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+          },
+          "quantity": 1
+        }
+      ],
+      "id": "ivHOjTQ"
     }
   ],
   "users": [
@@ -312,11 +356,26 @@
       "role": "USER"
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "1721720417473",
+      "productId": "7",
+      "ratings": [],
+      "comments": [
+        {
+          "id": "1721720417430",
+          "text": "kl\n",
+          "userId": "2",
+          "username": "mor_2314",
+          "date": "7/23/2024"
+        }
+      ]
+    }
+  ],
   "detailOrders": [
     {
       "id": "23095808",
-      "OrderDate": "2024-07-23 09:58:08",
+      "OrderDate": "2024-07-22 09:58:08",
       "Amount": 503520,
       "OrderInfo": "Thanh+toan+cho+ma+GD%3A23095808",
       "bankCode": "ncb",
@@ -348,7 +407,7 @@
     },
     {
       "id": "23095934",
-      "OrderDate": "2024-07-23 09:59:34",
+      "OrderDate": "2024-07-22 09:59:34",
       "Amount": 767280,
       "OrderInfo": "Thanh+toan+cho+ma+GD%3A23095934",
       "bankCode": "ncb",
@@ -390,7 +449,7 @@
     },
     {
       "id": "23100012",
-      "OrderDate": "2024-07-23 10:00:12",
+      "OrderDate": "2024-07-25 10:00:12",
       "Amount": 8688000,
       "OrderInfo": "Thanh+toan+cho+ma+GD%3A23100012",
       "bankCode": "ncb",
@@ -416,6 +475,165 @@
           "category": 2,
           "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
           "quantity": 30,
+          "userQuantity": 2
+        }
+      ],
+      "status": false
+    },
+    {
+      "id": "23143802",
+      "OrderDate": "2024-07-26 14:38:02",
+      "Amount": 1055040,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23143802",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "2",
+        "name": {
+          "firstname": "david",
+          "lastname": "morrison"
+        },
+        "email": "morrison@gmail.com",
+        "phone": "1-570-236-7033",
+        "address": {
+          "city": "kilcoole",
+          "street": "Lovers Ln"
+        }
+      },
+      "products": [
+        {
+          "id": "7",
+          "title": "White Gold Plated Princess",
+          "price": 9.99,
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 2
+        },
+        {
+          "id": "8",
+          "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "price": 10.99,
+          "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 2
+        }
+      ],
+      "status": false
+    },
+    {
+      "id": "23143807",
+      "OrderDate": "2024-07-27 14:38:07",
+      "Amount": 1055040,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23143807",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "2",
+        "name": {
+          "firstname": "david",
+          "lastname": "morrison"
+        },
+        "email": "morrison@gmail.com",
+        "phone": "1-570-236-7033",
+        "address": {
+          "city": "kilcoole",
+          "street": "Lovers Ln"
+        }
+      },
+      "products": [
+        {
+          "id": "7",
+          "title": "White Gold Plated Princess",
+          "price": 9.99,
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 2
+        },
+        {
+          "id": "8",
+          "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "price": 10.99,
+          "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+          "quantity": 30,
+          "userQuantity": 2
+        }
+      ],
+      "status": false
+    },
+    {
+      "id": "23143844",
+      "OrderDate": "2024-07-23 14:38:44",
+      "Amount": 767280,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A23143844",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "2",
+        "name": {
+          "firstname": "david",
+          "lastname": "morrison"
+        },
+        "email": "morrison@gmail.com",
+        "phone": "1-570-236-7033",
+        "address": {
+          "city": "kilcoole",
+          "street": "Lovers Ln"
+        }
+      },
+      "products": [
+        {
+          "id": "7",
+          "title": "White Gold Plated Princess",
+          "price": 9.99,
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "userQuantity": 2
+        },
+        {
+          "id": "8",
+          "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "price": 10.99,
+          "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+          "userQuantity": 1
+        }
+      ],
+      "status": true
+    },
+    {
+      "id": "24094612",
+      "OrderDate": "2024-07-24 09:46:12",
+      "Amount": 8688000,
+      "OrderInfo": "Thanh+toan+cho+ma+GD%3A24094612",
+      "bankCode": "ncb",
+      "customer": {
+        "id": "4",
+        "name": {
+          "firstname": "don",
+          "lastname": "romer"
+        },
+        "email": "don@gmail.com",
+        "phone": "1-765-789-6734",
+        "address": {
+          "city": "San Antonio",
+          "street": "Hunters Creek Dr"
+        }
+      },
+      "products": [
+        {
+          "id": "6",
+          "title": "Solid Gold Petite Micropave",
+          "price": 168,
+          "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+          "category": 2,
+          "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
           "userQuantity": 2
         }
       ],

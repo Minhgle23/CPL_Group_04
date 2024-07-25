@@ -57,6 +57,9 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                   <Dropdown.Item as={Link} to="/profile">
                     View Profile
                   </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/order">
+                    View Order
+                  </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

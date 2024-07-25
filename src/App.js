@@ -16,7 +16,13 @@ import Verify from "./component/common/Verify";
 import Success from "./component/common/Success";
 import FailTransaction from "./component/common/FailTransaction";
 import AdminHome from "./component/common/AdminHome";
-import AdminRoute from "./component/AdminRoute";
+
+import AdminRoute from './component/AdminRoute';
+import AdminCreateBlog from './component/Admin/AdminCreateBlog';
+import BlogList from './component/BlogList';
+import BlogDetail from './component/BlogDetail';
+import UserOrder from "./component/UserOrder";
+
 import AddProduct from "./component/AddProduct";
 import ProductList from "./component/ProductList";
 import EditProduct from "./component/EditProduct";
@@ -25,9 +31,12 @@ import CategoryList from "./component/CategoryList";
 import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import AdminManageBlog from "./component/Admin/AdminManageBlog";
 import UserList from "./component/common/UserList";
 import UserProfile from "./component/common/UserProfile";
 import RegistrationForm from "./component/Register";
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -90,6 +99,7 @@ function App() {
                 }
               />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/order" element={<UserOrder/>}/>
               <Route path="/cart" element={<Cart />} />
               <Route path="/cart/verify" element={<Verify />} />
               <Route path="/success" element={<Success />} />
