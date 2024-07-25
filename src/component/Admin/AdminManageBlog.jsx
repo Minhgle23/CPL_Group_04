@@ -37,7 +37,7 @@ function AdminManageBlog() {
 
   return (
     <Container>
-      <Button variant="primary" href="/demo/add">Add New</Button>
+      <Button variant="primary" href="/manage/add-blog">Add New</Button>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -65,9 +65,9 @@ function AdminManageBlog() {
                 </Button>
               </td>
               <td>
-                <Button variant="warning" href={`/demo/edit/${blog.id}`}>Edit</Button>{' '}
-                <Button variant="danger" href={`/demo/delete/${blog.id}`}>Delete</Button>{' '}
-                <Button variant="info" href={`/demo/view/${blog.id}`}>View</Button>
+                <Button variant="warning" href={`/edit/${blog.id}`}>Edit</Button>{' '}
+                <Button variant="danger" href={`/delete/${blog.id}`}>Delete</Button>{' '}
+                <Button variant="info" href={`/view/${blog.id}`}>View</Button>
               </td>
             </tr>
           ))}

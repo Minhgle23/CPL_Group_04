@@ -12,8 +12,6 @@ import {
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 function AdminSideBar() {
-  const [showBlogs, setShowBlogs] = useState(false);
-  const toggleBlogs = () => setShowBlogs(!showBlogs);
   return (
     <Container>
       <ul className="sidebar-list">
@@ -38,23 +36,9 @@ function AdminSideBar() {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <div onClick={toggleBlogs} className="d-flex align-items-center">
-            <BsListCheck className="icon" /> Blogs
-          </div>
-          {showBlogs && (
-            <ul className="submenu list-unstyled">
-              <li>
-                <Link to="/manage/blogs" style={{ fontSize: "13px" }}>
-                  View Blogs
-                </Link>
-              </li>
-              <li>
-                <Link to="/manage/blogs/add" style={{ fontSize: "13px" }}>
-                  Add Blog
-                </Link>
-              </li>
-            </ul>
-          )}
+          <Link to="/manage/blogs"><BsListCheck className="icon" /> Blogs</Link>
+            
+          
         </li>
         <li className="sidebar-list-item">
           <a href="">

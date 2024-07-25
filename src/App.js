@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Row, Col } from "react-bootstrap";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import Home from "./component/Home";
 import Product from "./component/Product";
 import ProductDetail from "./component/ProductDetail";
@@ -54,7 +54,6 @@ function App() {
 
   return (
     <CartProvider>
-      <BrowserRouter>
         {user?.role !== "ADMIN" ? (
           <Navbar
             user={user}
@@ -133,13 +132,21 @@ function App() {
                 path="/manage/category/edit/:id"
                 element={<AdminRoute Component={EditCategory} />}
               />
+              <Route
+                path="/manage/add-blog"
+                element={<AdminRoute Component={AdminCreateBlog} />}
+              />
+              <Route
+                path="/manage/blogs"
+                element={<AdminRoute Component={AdminManageBlog} />}
+              />
               <Route path="/manage/customers" element={<UserList />} />
               <Route path="/manage/customer/view/:id" element={<UserProfile />} />
             </Routes>
             <ToastContainer />
           </Col>
         </Row>
-      </BrowserRouter>
+
     </CartProvider>
   );
 }
