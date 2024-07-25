@@ -3,7 +3,7 @@ import {
   BsFillArchiveFill,
   BsFillGrid3X3GapFill,
   BsPeopleFill,
-  BsFillBellFill,
+  BsCurrencyDollar,
   BsBookHalf 
 } from "react-icons/bs";
 import {
@@ -110,13 +110,6 @@ function AdminHome() {
         </div>
         <div className="card-admin">
           <div className="card-admin-inner">
-            <h3>ALERTS</h3>
-            <BsFillBellFill className="card_icon" />
-          </div>
-          <h1>42</h1>
-        </div>
-        <div className="card-admin">
-          <div className="card-admin-inner">
             <h3>BLOGS</h3>
             <BsBookHalf   className="card_icon" />
           </div>
@@ -125,6 +118,7 @@ function AdminHome() {
       </div>
 
       <div className="charts">
+        
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             width={500}

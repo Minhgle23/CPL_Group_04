@@ -1,0 +1,37 @@
+.sidebar-list-item {
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .sidebar-list-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .submenu {
+    padding-left: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .submenu li {
+    padding: 5px 0;
+  }
+  
+  .submenu li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .submenu li a:hover {
+    text-decoration: underline;
+  }
+  
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+  

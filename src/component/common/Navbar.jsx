@@ -29,6 +29,7 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             {
+
               user?.role == "ADMIN" ? (
                 <Nav.Link as={Link} to="/dashboard">
                   Dashboard
@@ -42,6 +43,7 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
               Products
             </Nav.Link>
             <Nav.Link href="#">Contact</Nav.Link>
+
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
           <Nav>
