@@ -17,7 +17,7 @@ const ProductDetail = ({ user, isAuthenticated }) => {
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, [id]);
-
+  
   return (
     <div className="container my-5 py-3">
         <div className="row">

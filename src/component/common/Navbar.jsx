@@ -61,10 +61,17 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              <Button variant="outline-dark" as={Link} to="/login">
-                <i className="fa fa-sign-in"></i> Login
-              </Button>
+              <>
+                <Button variant="outline-dark" as={Link} to="/login">
+                  <i className="fa fa-sign-in"></i> Login
+                </Button>
+                <Button variant="outline-dark" as={Link} to="/register" className="ms-2" style={{ marginRight: "10px" }}>
+                  <i className="fa fa-user-plus"></i> Register
+                </Button>
+              </>
+              
             )}
+            
           </Nav>
 
           {user?.role != "ADMIN" ? (
