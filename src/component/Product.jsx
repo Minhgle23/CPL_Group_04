@@ -78,12 +78,14 @@ function Product() {
     return (
       <Col md={4} className="d-flex align-items-stretch" key={item.id}>
         <div className="card my-3" style={{ width: "100%" }}>
+          <NavLink to={`/products/${item.id}`}>
           <img
             src={item.image}
             className="card-img-top"
             alt={item.title}
             style={{ height: "350px", objectFit: "contain" }}
           />
+          </NavLink>
           <div className="card-body text-center">
             <h5 className="card-title">{item.title}</h5>
             <p className="lead">${item.price}</p>
