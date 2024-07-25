@@ -51,9 +51,16 @@ function App() {
       // setUser(user);
     }
   }, []);
-
+  const noNavbarPaths = ["/login"];
   return (
     <CartProvider>
+      {/* {!noNavbarPaths.includes(location.pathname) && (
+        <Navbar
+          user={user}
+          setUser={setUser}
+          setIsAuthenticated={setIsAuthenticated}
+        />
+      )} */}
         {user?.role !== "ADMIN" ? (
           <Navbar
             user={user}
