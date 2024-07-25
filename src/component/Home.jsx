@@ -17,7 +17,6 @@ function Home() {
         <HomeReco/>
       </Row>
       <HomeBlog/>
- 
     </Container>
   );
 }

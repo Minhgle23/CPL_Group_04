@@ -29,6 +29,7 @@ import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminManageBlog from "./component/Admin/AdminManageBlog";
+import UserOrder from "./component/UserOrder";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -63,6 +64,7 @@ function App() {
               <Route path="/products/:id" element={<ProductDetail user={user} isAuthenticated={isAuthenticated} />}/>
               <Route path="/login"  element={<Login setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}/>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/order" element={<UserOrder/>}/>
               <Route path="/cart" element={<Cart />} />
               <Route path="/cart/verify" element={<Verify />} />
               <Route path="/success" element={<Success />} />
