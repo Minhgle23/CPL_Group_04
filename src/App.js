@@ -16,10 +16,12 @@ import Verify from "./component/common/Verify";
 import Success from "./component/common/Success";
 import FailTransaction from "./component/common/FailTransaction";
 import AdminHome from "./component/common/AdminHome";
+
 import AdminRoute from './component/AdminRoute';
 import AdminCreateBlog from './component/Admin/AdminCreateBlog';
 import BlogList from './component/BlogList';
 import BlogDetail from './component/BlogDetail';
+
 import AddProduct from "./component/AddProduct";
 import ProductList from "./component/ProductList";
 import EditProduct from "./component/EditProduct";
@@ -29,7 +31,6 @@ import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminManageBlog from "./component/Admin/AdminManageBlog";
-import UserOrder from "./component/UserOrder";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,6 +50,7 @@ function App() {
   return (
       <CartProvider>
         {!noNavbarPaths.includes(location.pathname) && (
+
           <Navbar
             user={user}
             setUser={setUser}
@@ -69,6 +71,7 @@ function App() {
               <Route path="/cart/verify" element={<Verify />} />
               <Route path="/success" element={<Success />} />
               <Route path="/fail" element={<FailTransaction />} />
+
               <Route path="/dashboard" element={<AdminRoute Component={AdminHome} />}/>
               <Route path="/manage/product" element={<AdminRoute Component={ProductList} />}/>
               <Route path="/manage/add-product" element={<AdminRoute Component={AddProduct} />}/>
@@ -80,10 +83,12 @@ function App() {
               <Route path="/blogs/:blogId" element={<BlogDetail />} />
               <Route path="/manage/blogs/add" element={<AdminRoute Component={AdminCreateBlog} />} />
               <Route path="/manage/blogs" element={<AdminRoute Component={AdminManageBlog}/>}/>            
+
             </Routes>
             <ToastContainer />
           </Col>
         </Row>
+
       </CartProvider>
 
   );
