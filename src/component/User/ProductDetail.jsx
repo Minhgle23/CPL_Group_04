@@ -4,7 +4,7 @@ import Comment from "./Comment";
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import { useState } from "react";
-import CartContext from "./CartContext";
+import CartContext from "../CartContext";
 
 const ProductDetail = ({ user, isAuthenticated }) => {
   const [product, setProduct] = useState({});

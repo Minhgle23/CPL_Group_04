@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import { format } from "date-fns";
 import { useParams } from "react-router-dom";
-import './BlogList.css'
+import "./UserStyle/BlogList.css";
 
 function BlogDetail() {
 

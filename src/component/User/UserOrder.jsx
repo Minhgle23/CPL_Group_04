@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Table, Button, Modal, Row, Col } from "react-bootstrap";
-import './userOrder.css';
+import './UserStyle/userOrder.css';
 import { BiColor } from "react-icons/bi";
 
 function UserOrder() {

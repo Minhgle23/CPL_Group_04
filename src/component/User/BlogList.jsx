@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Pagination from 'react-bootstrap/Pagination';
-import './BlogList.css';
+import './UserStyle/BlogList.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function BlogList() {

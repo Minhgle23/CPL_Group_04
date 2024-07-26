@@ -4,38 +4,45 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Row, Col } from "react-bootstrap";
 import {  Route, Routes } from "react-router-dom";
-import Home from "./component/Home";
-import Product from "./component/Product";
-import ProductDetail from "./component/ProductDetail";
-import Login from "./component/Login";
-import Profile from "./component/Profile";
-import { CartProvider } from "./component/CartContext";
-import Navbar from "./component/common/Navbar";
-import Cart from "./component/Cart";
-import Verify from "./component/common/Verify";
-import Success from "./component/common/Success";
-import FailTransaction from "./component/common/FailTransaction";
-import AdminHome from "./component/common/AdminHome";
-
-import AdminRoute from './component/AdminRoute';
-import AdminCreateBlog from './component/Admin/AdminCreateBlog';
-import BlogList from './component/BlogList';
-import BlogDetail from './component/BlogDetail';
-import UserOrder from "./component/UserOrder";
-
-import AddProduct from "./component/AddProduct";
-import ProductList from "./component/ProductList";
-import EditProduct from "./component/EditProduct";
-import AddCategory from "./component/AddCategory";
-import CategoryList from "./component/CategoryList";
-import EditCategory from "./component/EditCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+//manage routes
+import AdminRoute from './component/ManageRoutes/AdminRoute';
+//cart
+import { CartProvider } from "./component/CartContext";
+import Cart from "./component/Cart";
+//common
+import Home from "./component/Home";
+import Product from "./component/Product";
+import Login from "./component/Login";
+import Navbar from "./component/common/Navbar";
+import Verify from "./component/Verify";
+import Success from "./component/common/PaymentReturn/Success";
+import FailTransaction from "./component/common/PaymentReturn/FailTransaction";
+
+//user
+import UserProfile from "./component/User/UserProfile";
+import Profile from "./component/User/Profile";
+import AdminCreateBlog from './component/Admin/AdminCreateBlog';
+import BlogList from './component/User/BlogList';
+import BlogDetail from './component/User/BlogDetail';
+import UserOrder from "./component/User/UserOrder";
+import ProductList from "./component/User/ProductList";
+//admin
+import AdminHome from "./component/common/AdminHome";
+import AddProduct from "./component/Admin/AddCategory";
+import EditProduct from "./component/Admin/EditProduct";
+import AddCategory from "./component/Admin/AddCategory";
+import CategoryList from "./component/Admin/CategoryList";
+import EditCategory from "./component/Admin/EditCategory";
+
+
 import AdminManageBlog from "./component/Admin/AdminManageBlog";
-import UserList from "./component/common/UserList";
-import UserProfile from "./component/common/UserProfile";
+import UserList from "./component/Admin/UserList";
+
 import RegistrationForm from "./component/Register";
+import ProductDetail from "./component/User/ProductDetail";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
