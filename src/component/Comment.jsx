@@ -46,8 +46,10 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
       return;
     }
 
+    let tempid = new Date().getTime()
     const newCommentObject = {
-      id: new Date().getTime(),
+      id: tempid.toString(),
+
       text: newComment,
       userId: user.id,
       username: user.username,
@@ -76,8 +78,10 @@ const CommentSection = ({ productId, user, isAuthenticated }) => {
               setNewComment("");
             });
         } else {
+
+          let tempid = new Date().getTime();
           const newReview = {
-            id: new Date().getTime(),
+            id: tempid.toString(),
             productId: productId,
             ratings: [],
             comments: [newCommentObject]
