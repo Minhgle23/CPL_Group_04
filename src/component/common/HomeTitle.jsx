@@ -9,7 +9,7 @@ function HomeTitle() {
             <div className="support-icon mb-2">
               <img
                 className="animated"
-                src={process.env.PUBLIC_URL + `assets/images/support-1.png`}
+                src={process.env.PUBLIC_URL + `assets/images/common/support-1.png`}
                 alt=""
               />
             </div>
@@ -24,7 +24,7 @@ function HomeTitle() {
             <div className="support-icon mb-2">
               <img
                 className="animated"
-                src={process.env.PUBLIC_URL + `assets/images/support-2.png`}
+                src={process.env.PUBLIC_URL + `assets/images/common/support-2.png`}
                 alt=""
               />
             </div>
@@ -39,7 +39,7 @@ function HomeTitle() {
             <div className="support-icon mb-2">
               <img
                 className="animated"
-                src={process.env.PUBLIC_URL + `assets/images/support-3.png`}
+                src={process.env.PUBLIC_URL + `assets/images/common/support-3.png`}
                 alt=""
               />
             </div>
@@ -54,7 +54,7 @@ function HomeTitle() {
             <div className="support-icon mb-2">
               <img
                 className="animated"
-                src={process.env.PUBLIC_URL + `assets/images/support-4.png`}
+                src={process.env.PUBLIC_URL + `assets/images/common/support-4.png`}
                 alt=""
               />
             </div>

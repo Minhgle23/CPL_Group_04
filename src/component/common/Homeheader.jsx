@@ -9,7 +9,7 @@ function Homeheader(){
           <img
             style={{ width: "100%", height: "300px", objectFit: "contain" }}
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + `assets/images/them2.jpeg`}
+            src={process.env.PUBLIC_URL + `assets/images/hero/them2.jpeg`}
             alt="Image One"
           />
           </a>
@@ -18,7 +18,7 @@ function Homeheader(){
           <img
             style={{ width: "100%", height: "300px", objectFit: "contain" }}
             className="d-block w-100"
-            src={process.env.PUBLIC_URL + `assets/images/them1.webp`}
+            src={process.env.PUBLIC_URL + `assets/images/hero/them1.webp`}
             alt="Image Two"
           />
           <Carousel.Caption>

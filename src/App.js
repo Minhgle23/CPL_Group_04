@@ -28,10 +28,10 @@ import AdminCreateBlog from './component/Admin/AdminCreateBlog';
 import BlogList from './component/User/BlogList';
 import BlogDetail from './component/User/BlogDetail';
 import UserOrder from "./component/User/UserOrder";
-import ProductList from "./component/User/ProductList";
+import ProductList from "./component/Admin/ProductList";
 //admin
 import AdminHome from "./component/common/AdminHome";
-import AddProduct from "./component/Admin/AddCategory";
+import AddProduct from "./component/Admin/AddProduct";
 import EditProduct from "./component/Admin/EditProduct";
 import AddCategory from "./component/Admin/AddCategory";
 import CategoryList from "./component/Admin/CategoryList";
