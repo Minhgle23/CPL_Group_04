@@ -80,7 +80,7 @@ function Product() {
         <div className="card my-3" style={{ width: "100%" }}>
           <NavLink to={`/products/${item.id}`}>
           <img
-            src={item.image}
+            src={process.env.PUBLIC_URL + `/assets/images/products/${item.image}`}
             className="card-img-top"
             alt={item.title}
             style={{ height: "350px", objectFit: "contain" }}
