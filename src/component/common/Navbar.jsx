@@ -21,7 +21,7 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="custom-navbar">
       <Container>
         <Navbar.Brand as={Link} to="/">
           Ecommer
@@ -30,16 +30,16 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
             {
-
-              user?.role == "ADMIN" ? (
+              user?.role === "ADMIN" ? (
                 <Nav.Link as={Link} to="/dashboard">
                   Dashboard
                 </Nav.Link>
-              ) : (<Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>)
+              ) : (
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+              )
             }
-            
             <Nav.Link as={Link} to="/products">
               Products
             </Nav.Link>
@@ -72,12 +72,9 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                   <i className="fa fa-user-plus"></i> Register
                 </Button>
               </>
-              
             )}
-            
           </Nav>
-
-          {user?.role != "ADMIN" ? (
+          {user?.role !== "ADMIN" ? (
             <Button variant="outline-dark" as={Link} to="/cart">
               <i className="fa fa-shopping-cart"></i> Cart({totalCartItem})
             </Button>

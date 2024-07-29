@@ -39,7 +39,7 @@ function HomeReco() {
             <Link to={`/products/${item.id}`}>
               <Card.Img
                 variant="top"
-                src={item.image}
+                src={`/assets/images/products/${item.image}`}
                 alt={item.title}
                 className="product-img"
               />

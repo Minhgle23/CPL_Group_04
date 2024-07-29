@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Row, Col, Form,Button } from "react-bootstrap";
-
+import  '../component/User/UserStyle/Product.css';
 
 function Product() {
   const [listProduct, setListProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
   const [cateID, setCateID] = useState(0);
-  const [sortOption, setSortOption] = useState("");
+  // const [sortOption, setSortOption] = useState("");
   const [start] = useState(0);
   const [limit, setLimit] = useState(6);
+  const [brandID, setBrandID] = useState(0);
+  const [sortOption, setSortOption] = useState("best-sellers");
+  const [viewMode, setViewMode] = useState("grid");
+  const [itemsPerPage, setItemsPerPage] = useState(12);
 
 
   useEffect(() => {
@@ -73,25 +77,40 @@ function Product() {
         return products;
     }
   };
+  const handleBrandChange = (e) => {
+    setBrandID(Number(e.target.value));
+  };
+
+  const handleViewModeChange = (mode) => {
+    setViewMode(mode);
+  };
+
+  const handleItemsPerPageChange = (e) => {
+    setItemsPerPage(Number(e.target.value));
+  };
 
   const cardItem = (item) => {
     return (
-      <Col md={4} className="d-flex align-items-stretch" key={item.id}>
-        <div className="card my-3" style={{ width: "100%" }}>
-          <NavLink to={`/products/${item.id}`}>
-          <img
-            src={process.env.PUBLIC_URL + `/assets/images/products/${item.image}`}
-            className="card-img-top"
-            alt={item.title}
-            style={{ height: "350px", objectFit: "contain" }}
-          />
-          </NavLink>
-          <div className="card-body text-center">
+      <Col xs={12} sm={6} md={viewMode === 'grid' ? 4 : 12} className="d-flex align-items-stretch" key={item.id}>
+        <div className={`card my-3 ${viewMode === 'list' ? 'flex-row' : ''}`} style={{width: "100%"}}>
+          <div className="position-relative card-image-wrapper" >
+            <span className="badge bg-dark position-absolute top-0 start-0 m-2">New</span>
+            <NavLink to={`/products/${item.id}`}>
+              <img
+                src={process.env.PUBLIC_URL + `/assets/images/products/${item.image}`}
+                className="card-img-top"
+                alt={item.title}
+                style={{height: "250px", objectFit: "contain"}}
+              />
+            </NavLink>
+          </div>
+          <div className="card-body d-flex flex-column">
             <h5 className="card-title">{item.title}</h5>
-            <p className="lead">${item.price}</p>
+            <p className="card-text text-muted">{item.category}</p>
+            <p className="card-text fw-bold">${item.price}</p>
             <NavLink
               to={`/products/${item.id}`}
-              className="btn btn-outline-dark"
+              className="btn btn-dark mt-auto"
             >
               Buy Now
             </NavLink>
@@ -102,56 +121,30 @@ function Product() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="py-5">
+      <h1 className="mb-0">Products</h1>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><NavLink to="/">Home</NavLink></li>
+          <li className="breadcrumb-item active" aria-current="page"> Products </li>
+        </ol>
+      </nav>
       <Row>
-        <Col md={3}></Col>
-        <Col md={9}>
-          <div className="d-flex justify-content-between align-items-center ">
-            <h1>Shop</h1>
-            <span>Showing {listProduct.length} results</span>
-          </div>
-        </Col>
-      </Row>
-      <Row className="py-5">
-        <Col md={3}>
-          <div className="mb-4">
-            <h5>Search</h5>
-
-            <div class="input-group">
-              <div class="form-outline" data-mdb-input-init>
-                <input
-                  type="search"
-                  id="form1"
-                  class="form-control"
-                  placeholder="Search products"
-                  value={search}
-                  onChange={handleSearchChange}
-                />
-              </div>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-mdb-ripple-init
-              >
-                <i className="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <h5>Categories</h5>
+        <Col lg={3} className="mb-4">
+          <div className="category-sidebar">
+            <h5>Shop by Category</h5>
             <ul className="list-unstyled">
               <li className="form-check">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault0"
+                  name="category"
+                  id="category0"
                   value={0}
                   checked={cateID === 0}
                   onChange={handleCategoryChange}
                 />
-                <label className="form-check-label" htmlFor="flexRadioDefault0">
+                <label className="form-check-label" htmlFor="category0">
                   All Categories
                 </label>
               </li>
@@ -160,13 +153,13 @@ function Product() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    name="flexRadioDefault"
-                    id={`flexRadioDefault${category.cateid}`}
+                    name="category"
+                    id={`category${category.cateid}`}
                     value={category.cateid}
                     checked={cateID === category.cateid}
                     onChange={handleCategoryChange}
                   />
-                  <label className="form-check-label" htmlFor={`flexRadioDefault${category.cateid}`}>
+                  <label className="form-check-label" htmlFor={`category${category.cateid}`}>
                     {category.name}
                   </label>
                 </li>
@@ -174,20 +167,37 @@ function Product() {
             </ul>
           </div>
         </Col>
-        <Col md={9}>
-        <div className="d-flex justify-content-between mb-4">
-            <div></div> {/* Empty div to push the sort dropdown to the right */}
-            <Form.Select value={sortOption} onChange={handleSortChange} className="w-auto">
-              <option value="">Sort By</option>
-              <option value="az">Name: A-Z</option>
-              <option value="za">Name: Z-A</option>
-              <option value="low-high">Price: Low to High</option>
-              <option value="high-low">Price: High to Low</option>
-            </Form.Select>
+        <Col lg={9}>
+          <div className="product-toolbar d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div className="view-options mb-3 mb-md-0">
+              <Button variant="outline-dark" className="me-2" onClick={() => handleViewModeChange('grid')}>
+                <i className="fa fa-th"></i>
+              </Button>
+              <Button variant="outline-dark" onClick={() => handleViewModeChange('list')}>
+                <i className="fa fa-list"></i>
+              </Button>
+            </div>
+            <div className="sort-options d-flex flex-wrap">
+              <label>Sort by:</label>
+              <Form.Select value={sortOption} onChange={handleSortChange} className="me-2 mb-2 mb-md-0">
+                <option value="best-sellers">Best Sellers</option>
+                <option value="az">Name: A-Z</option>
+                <option value="za">Name: Z-A</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+              </Form.Select>
+              {/* <label>Show:</label>
+              <Form.Select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+                <option value="12">Show: 12</option>
+                <option value="24">Show: 24</option>
+                <option value="36">Show: 36</option>
+              </Form.Select> */}
+            </div>
           </div>
-          <Row>{listProduct.map(cardItem)}</Row>
+          <Row className="product-grid">{listProduct.map(cardItem)}</Row>
+          {/* <Row>{listProduct.map(cardItem)}</Row> */}
           <div className="text-center mt-4">
-            <Button onClick={handleLoadMore}>Load More</Button>
+            <Button variant="outline-dark" onClick={handleLoadMore}>Load More</Button>
           </div>
         </Col>
       </Row>
