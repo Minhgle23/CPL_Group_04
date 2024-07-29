@@ -1,34 +1,36 @@
-/* General Styles */
-.section {
+/* BlogList Specific Styles */
+.home-blog-section {
   padding: 60px 0;
+  background-color: #f8f9fa; /* Add a background color to the section */
 }
 
-.posts-entry {
-  text-align: center;
-}
-
-.posts-entry-title {
+.home-blog-title {
   text-transform: uppercase;
   font-size: 28px;
   color: #333;
   letter-spacing: 0.05rem;
   margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700; /* Make the title bold */
 }
 
-.blog-entry {
+.home-blog-entry {
   border: 2px solid #ddd;
   padding: 15px;
   background-color: #fff;
+  margin-bottom: 30px;
   height: 100%;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
-.blog-entry:hover {
+.home-blog-entry:hover {
   transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
 }
 
-.blog-entry .img-link {
+.home-blog-img-link {
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -36,52 +38,57 @@
   margin-bottom: 10px;
 }
 
-.blog-entry img {
+.home-blog-img-large {
   width: 100%;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
 
-.blog-entry img:hover {
+.home-blog-img-large:hover {
   transform: scale(1.05);
 }
 
-.post-title {
+.home-blog-post-title {
   font-size: 24px;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #333;
+  text-align: center; /* Center the title text */
 }
 
-p {
+.home-blog-entry p {
   font-size: 16px;
   color: #555;
+  text-align: center; /* Center the paragraph text */
 }
 
-.date {
+.home-blog-date {
   font-size: 14px;
   color: #888;
+  text-align: center; /* Center the date text */
+  display: block;
+  margin-top: 10px; /* Add spacing above the date */
 }
 
-.image-container {
+.home-blog-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
+  height: 200px; /* Set a fixed height for image container */
 }
 
-.read-more {
+.home-blog-read-more {
   color: #007bff;
   text-decoration: none;
+  display: block;
+  text-align: center; /* Center the read more link */
+  margin-top: 15px; /* Add spacing above the read more link */
 }
 
-.read-more:hover {
+.home-blog-read-more:hover {
   text-decoration: underline;
-}
-
-.mb-4 {
-  margin-bottom: 1.5rem !important; /* Adjust spacing between blog entries */
 }

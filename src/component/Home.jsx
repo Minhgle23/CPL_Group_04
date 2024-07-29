@@ -14,9 +14,15 @@ function Home() {
       </Row>
       <Row>
         <HomeTitle />
-        <HomeReco/>
+        
       </Row>
+      <Row>
+      <HomeReco/>
+      </Row>
+      <Row>
       <HomeBlog/>
+      </Row>
+      
     </Container>
   );
 }

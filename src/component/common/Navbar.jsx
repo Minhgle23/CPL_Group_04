@@ -12,9 +12,9 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
     }
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     localStorage.removeItem("user");
-    clearCart();
+    await clearCart(); // Wait for clearCart to complete
     setUser(null);
     setIsAuthenticated(false);
     window.location.href = "/"; // Redirect to home page after logout
