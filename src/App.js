@@ -13,6 +13,7 @@ import AdminRoute from './component/ManageRoutes/AdminRoute';
 import { CartProvider } from "./component/CartContext";
 import Cart from "./component/Cart";
 //common
+
 import Home from "./component/Home";
 import Product from "./component/Product";
 import Login from "./component/Login";
@@ -43,6 +44,7 @@ import UserList from "./component/Admin/UserList";
 
 import RegistrationForm from "./component/Register";
 import ProductDetail from "./component/User/ProductDetail";
+import Footer from "./component/common/Footer";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -162,6 +164,7 @@ function App() {
             <ToastContainer />
           </Col>
         </Row>
+        <Footer />
 
     </CartProvider>
   );
