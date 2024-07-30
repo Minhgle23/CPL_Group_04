@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../component/common/style/Login.css'; 
 
 const Login = ({ setIsAuthenticated, setUser }) => {
-  const [username, setUsername] = useState('');
+  const [username, setusername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -16,20 +16,17 @@ const Login = ({ setIsAuthenticated, setUser }) => {
       const users = await response.json();
 
       const user = users.find((u) => u.username === username && u.password === password);
-      console.log(user.role);
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
         setIsAuthenticated(true);
         alert('Login successful');
 
-        if(user?.role == "ADMIN"){
+        if(user?.role === "ADMIN"){
           navigate('/dashboard');
-        }else{
-          navigate('/'); 
+        } else {
+          navigate('/');
         }
-        // Redirect to home page after login
-
       } else {
         setError('Invalid username or password');
       }
@@ -40,33 +37,34 @@ const Login = ({ setIsAuthenticated, setUser }) => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Username:</label>
+    <div className="login-page">
+      <div className="login-container">
+        <form onSubmit={handleLogin} className="login-form" id="form2">
+          <h2 className="login-title">Sign In</h2>
           <input
             type="text"
+            placeholder="username"
+            className="login-input"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setusername(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label>Password:</label>
           <input
             type="password"
+            placeholder="Password"
+            className="login-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
-        {error && <p className="error">{error}</p>}
-        <button type="submit">Login</button>
-      </form>
+          <a href="#" className="login-link">Forgot your password?</a>
+          {error && <p className="error">{error}</p>}
+          <button type="submit" className="login-btn">Sign In</button>
+        </form>
+        
+      </div>
     </div>
   );
 };
 
 export default Login;
-

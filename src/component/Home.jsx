@@ -4,6 +4,7 @@ import Homeheader from "./common/Homeheader";
 import HomeTitle from "./common/HomeTitle";
 import HomeReco from "./common/HomeReco";
 import HomeBlog from "./common/HomeBlog";
+import Footer from "./common/Footer";
 
 
 function Home() {
@@ -22,7 +23,6 @@ function Home() {
       <Row>
       <HomeBlog/>
       </Row>
-      
     </Container>
   );
 }

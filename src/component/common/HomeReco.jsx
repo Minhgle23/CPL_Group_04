@@ -28,8 +28,32 @@ function HomeReco() {
       .then((result) => setCategories(result));
   };
 
-  const handleCategoryClick = (id) => {
+const handleCategoryClick = (id) => {
     setCateID(id);
+  };
+
+  const cardItem = (item) => {
+    return (
+      <Col md={3} className="d-flex align-items-stretch" key={item.id}>
+        <Card className="product-card my-3">
+          <Link to={`/products/${item.id}`}>
+            <Card.Img
+              variant="top"
+              src={`/assets/images/products/${item.image}`}
+              alt={item.title}
+              className="product-img"
+            />
+          </Link>
+          <Card.Body className="text-center">
+            <Card.Title className="product-title">{item.title}</Card.Title>
+            <Card.Text className="lead">${item.price}</Card.Text>
+            <Link to={`/products/${item.id}`} className="btn btn-outline-dark">
+              Buy Now
+            </Link>
+          </Card.Body>
+        </Card>
+      </Col>
+    );
   };
 
   const cardItem = (item) => {
