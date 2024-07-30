@@ -9,8 +9,10 @@ function HomeBlog() {
         fetch('http://localhost:9999/blog')
             .then(res => res.json())
             .then(result => {
+                // Filter out blogs with status false
+                const validBlogs = result.filter(blog => blog.status !== false);
                 // Shuffle the array and take the first 4 elements
-                const shuffled = result.sort(() => 0.5 - Math.random());
+                const shuffled = validBlogs.sort(() => 0.5 - Math.random());
                 setBlogs(shuffled.slice(0, 4));
             });
     }, []);
@@ -25,14 +27,12 @@ function HomeBlog() {
                             <div className="home-blog-entry">
                                 <Link to={`/blogs/${blog.id}`} className="home-blog-img-link">
                                     <div className="home-blog-image-container">
-                                        <img src={`/assets/images/${blog.image}`} alt={blog.title} className="img-fluid home-blog-img-large" />
+                                        <img src={`/assets/images/blog/${blog.image}`} alt={blog.title} className="img-fluid home-blog-img-large" />
                                     </div>
                                     <h2 className="home-blog-post-title">{blog.title}</h2>
                                 </Link>
                                 <p>{blog.brief}</p>
-                                <span className="home-blog-date">
-                                    {/* {format(new Date(blog.dateCreate), 'dd-MM-yyyy')} */}
-                                </span>
+                                <span className="home-blog-date">{/* Add blog date here if needed */}</span>
                             </div>
                         </div>
                     ))}
