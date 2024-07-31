@@ -45,7 +45,7 @@ import UserList from "./component/Admin/UserList";
 import RegistrationForm from "./component/Register";
 import ProductDetail from "./component/User/ProductDetail";
 import Footer from "./component/common/Footer";
-
+import ForgotPassword from "./component/ForgotPassWord";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -113,6 +113,12 @@ function App() {
                 path="/register"
                 element={
                   <RegistrationForm/>
+                }
+              />
+              <Route
+                path="/forgot"
+                element={
+                  <ForgotPassword/>
                 }
               />
               <Route path="/profile" element={<Profile />} />
