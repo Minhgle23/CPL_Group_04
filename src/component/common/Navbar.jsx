@@ -29,21 +29,21 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            {
-              user?.role === "ADMIN" ? (
-                <Nav.Link as={Link} to="/dashboard">
-                  Dashboard
-                </Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/">
-                  Home
-                </Nav.Link>
-              )
-            }
+            {user?.role === "ADMIN" ? (
+              <Nav.Link as={Link} to="/dashboard">
+                Dashboard
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+            )}
             <Nav.Link as={Link} to="/products">
               Products
             </Nav.Link>
-            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+            <Nav.Link as={Link} to="/blogs">
+              Blogs
+            </Nav.Link>
 
             <Nav.Link href="#">Link</Nav.Link>
           </Nav>
@@ -57,9 +57,14 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                   <Dropdown.Item as={Link} to="/profile">
                     View Profile
                   </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/order">
-                    View Order
-                  </Dropdown.Item>
+                  {user?.role != "ADMIN" ? (
+                    <Dropdown.Item as={Link} to="/order">
+                      View Order
+                    </Dropdown.Item>
+                  ) : (
+                    <></>
+                  )}
+
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -68,7 +73,13 @@ function CustomNavbar({ user, setUser, setIsAuthenticated }) {
                 <Button variant="outline-dark" as={Link} to="/login">
                   <i className="fa fa-sign-in"></i> Login
                 </Button>
-                <Button variant="outline-dark" as={Link} to="/register" className="ms-2" style={{ marginRight: "10px" }}>
+                <Button
+                  variant="outline-dark"
+                  as={Link}
+                  to="/register"
+                  className="ms-2"
+                  style={{ marginRight: "10px" }}
+                >
                   <i className="fa fa-user-plus"></i> Register
                 </Button>
               </>

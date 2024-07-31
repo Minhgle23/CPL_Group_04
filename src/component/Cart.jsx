@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Button, Container, Table } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartContext from "./CartContext";
+import "../App.css"; // Import the custom CSS file
 
 const Cart = () => {
-  const { cart, totalPrice, clearCart } = useContext(CartContext);
+  const { cart, totalPrice, clearCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleBuy = () => {
@@ -48,19 +49,24 @@ const Cart = () => {
               <td>{product.price}</td>
               <td>
                 <img
-                  src={product.image}
+                  src={process.env.PUBLIC_URL + `/assets/images/products/${product.image}`}
                   alt={product.name}
-                  style={{ width: 100 }}
+                  style={{ width: 60 }}
                 />
               </td>
-              <td>{product.userQuantity}</td>
+              <td>
+                <div className="quantity-controls">
+                  <Button variant="outline-secondary" size="sm" onClick={() => decreaseQuantity(product.id)}>-</Button>
+                  <span className="mx-2">{product.userQuantity}</span>
+                  <Button variant="outline-secondary" size="sm" onClick={() => increaseQuantity(product.id)}>+</Button>
+                </div>
+              </td>
               <td>{(product.price * product.userQuantity).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
       </Table>
       <h4>Total: {totalPrice} $</h4>
-      <p>include tax 8%</p>
       <Button onClick={handleBuy} className="btn btn-primary">
         Buy
       </Button>
