@@ -18,8 +18,7 @@ function Home() {
         <HomeReco/>
       </Row>
       <HomeBlog/>
-      <Row>
-      </Row>
+     
       
     </Container>
   );

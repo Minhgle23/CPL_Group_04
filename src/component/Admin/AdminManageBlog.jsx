@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container, Button, Table } from "react-bootstrap";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
+import "./AdminStyle/ManageBlog.css";
 
 function AdminManageBlog() {
   const [blogList, setBlogList] = useState([]);
@@ -13,7 +15,7 @@ function AdminManageBlog() {
 
   const updateStatus = (id, currentStatus) => {
     const newStatus = !currentStatus;
-    const blogToUpdate = blogList.find(blog => blog.id === id);
+    const blogToUpdate = blogList.find((blog) => blog.id === id);
     if (!blogToUpdate) return;
 
     const updatedBlog = { ...blogToUpdate, status: newStatus };
@@ -25,18 +27,31 @@ function AdminManageBlog() {
       },
       body: JSON.stringify(updatedBlog),
     })
-    .then((res) => res.json())
-    .then((updatedBlogFromServer) => {
-      setBlogList((prevBlogs) =>
-        prevBlogs.map((blog) =>
-          blog.id === id ? updatedBlogFromServer : blog
-        )
-      );
-    });
+      .then((res) => res.json())
+      .then((updatedBlogFromServer) => {
+        setBlogList((prevBlogs) =>
+          prevBlogs.map((blog) =>
+            blog.id === id ? updatedBlogFromServer : blog
+          )
+        );
+      });
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this blog?")) {
+      fetch(`http://localhost:9999/blog/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then(() => {
+          setBlogList((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id));
+        });
+    }
   };
 
   return (
     <Container>
+      <h2>Blog List</h2>
       <Button variant="primary" href="/manage/add-blog">Add New</Button>
       <Table striped bordered hover>
         <thead>
@@ -54,7 +69,7 @@ function AdminManageBlog() {
               <td>{blog.title}</td>
               <td>{format(new Date(blog.dateCreate), 'yyyy-MM-dd')}</td>
               <td>
-                <img src={`asset/image/blog/${blog.image}`} alt={blog.title} width="100" />
+                <img className="blog-image" src={process.env.PUBLIC_URL + `/assets/images/blog/${blog.image}`} alt={blog.title} width="100" />
               </td>
               <td>
                 <Button
@@ -65,9 +80,8 @@ function AdminManageBlog() {
                 </Button>
               </td>
               <td>
-                <Button variant="warning" href={`/edit/${blog.id}`}>Edit</Button>{' '}
-                <Button variant="danger" href={`/delete/${blog.id}`}>Delete</Button>{' '}
-                <Button variant="info" href={`/view/${blog.id}`}>View</Button>
+                <Link to={`/manage/blog/edit/${blog.id}`} className="btn btn-info" style={{ color: 'white' }}>Edit</Link>{' '}
+                <Button variant="danger" onClick={() => handleDelete(blog.id)} style={{ color: 'white' }}>Delete</Button>{' '}
               </td>
             </tr>
           ))}

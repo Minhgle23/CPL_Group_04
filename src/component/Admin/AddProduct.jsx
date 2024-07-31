@@ -39,14 +39,16 @@ const AddProduct = () => {
       .then(response => response.json())
       .then(data => {
         data.forEach(product => {
-          if (product.id > maxId) {
-            maxId = product.id;
+          if (parseInt(product.id) > maxId) {
+            maxId = parseInt(product.id);
           }
         });
 
+        let maxIdInt = parseInt(maxId) + 1;
+       
         // Step 2: Create new product with incremented id
         const newProduct = {
-          id: maxId + 1,
+          id: maxIdInt.toString(),
           title,
           price: Number(price), // Ensure price is converted to number if needed
           description,

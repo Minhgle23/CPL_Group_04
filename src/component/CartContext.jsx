@@ -44,8 +44,7 @@ export const CartProvider = ({ children }) => {
     const newTotalCartItem = cart.reduce((acc, item) => acc + item.userQuantity, 0);
     const newTotalPrice = cart.reduce((acc, item) => {
       const totalProductPrice = item.price * item.userQuantity;
-      const tax = Math.floor(totalProductPrice * 0.08);
-      return acc + totalProductPrice + tax;
+      return acc + totalProductPrice;
     }, 0);
 
     setTotalCartItem(newTotalCartItem);
@@ -171,10 +170,26 @@ export const CartProvider = ({ children }) => {
     }
   }, [location]);
 
+
+  const increaseQuantity = (productId) => {
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.id === productId ? { ...item, userQuantity: item.userQuantity + 1 } : item
+      )
+    );
+  };
+  
+  const decreaseQuantity = (productId) => {
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.id === productId && item.userQuantity > 1 ? { ...item, userQuantity: item.userQuantity - 1 } : item
+      )
+    );
+  };
   return (
-    <CartContext.Provider value={{ cart, totalCartItem, totalPrice, addToCart, clearCart }}>
-      {children}
-    </CartContext.Provider>
+    <CartContext.Provider value={{ cart, totalCartItem, totalPrice, addToCart, clearCart, increaseQuantity, decreaseQuantity }}>
+    {children}
+  </CartContext.Provider>
   );
 };
 

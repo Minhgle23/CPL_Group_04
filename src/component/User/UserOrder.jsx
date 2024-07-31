@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Container, Table, Button, Modal, Row, Col } from "react-bootstrap";
-import './UserStyle/userOrder.css';
-import { BiColor } from "react-icons/bi";
+import { Container, Table, Button, Modal } from "react-bootstrap";
+import './UserStyle/userOrder.css'; // Import the custom CSS file
 
 function UserOrder() {
   const [userOrder, setUserOrder] = useState([]);
@@ -47,6 +46,7 @@ function UserOrder() {
 
   return (
     <Container>
+      <h2 className="text-center my-4">Order History</h2>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -96,7 +96,7 @@ function UserOrder() {
                     <p>Price: {product.price}</p>
                     <p>Description: {product.description}</p>
                     <p>Category: {categories.find(cate => cate.cateid === product.category)?.name}</p>
-                    <img src={product.image} alt={product.title} style={{ width: '100px' }} />
+                    <img src={process.env.PUBLIC_URL + `/assets/images/products/${product.image}`} alt={product.title} style={{ width: '100px' }} />
                     <p>Quantity: {product.userQuantity}</p>
                   </li>
                 ))}

@@ -8,14 +8,18 @@ function BlogList() {
     const [blogs, setBlogs] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalBlogs, setTotalBlogs] = useState(0);
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
     const blogsPerPage = 4;
 
     useEffect(() => {
         fetch('http://localhost:9999/blog')
             .then(res => res.json())
             .then(result => {
-                setTotalBlogs(result.length);
-                setBlogs(result.slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage));
+                // Filter out blogs with status false
+                const validBlogs = result.filter(blog => blog.status !== false);
+                setFilteredBlogs(validBlogs);
+                setTotalBlogs(validBlogs.length);
+                setBlogs(validBlogs.slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage));
             });
     }, [currentPage]);
 
@@ -41,30 +45,26 @@ function BlogList() {
     };
 
     return (
-        <section className="section posts-entry posts-entry-sm ">
-            <div className="view-all-post container">
-                <h1 className="posts-entry-title">Tiêu Đề Của Phần</h1>
+        <section className="home-blog-section">
+            <div className="container">
+                <h1 className="home-blog-title">All Blogs</h1>
                 <div className="row">
-                    <div className="col-md-12">
-                        <div className="row">
-                            {blogs.map((blog) => (
-                                <div key={blog.id} className="col-md-3 mb-4">
-                                    <div className="blog-entry">
-                                        <Link to={`/blogs/${blog.id}`} className="img-link">
-                                            <div className="image-container">
-                                                <img src={`/assets/images/${blog.image}`} alt={blog.title} className="img-fluid img-large" />
-                                            </div>
-                                            <h2 className="post-title">{blog.title}</h2>
-                                        </Link>
-                                        <p>{blog.brief}</p>
-                                        <span className="date">
-                                            {/* {format(new Date(blog.dateCreate), 'dd-MM-yyyy')} */}
-                                        </span>
+                    {blogs.map((blog) => (
+                        <div key={blog.id} className="col-md-3 mb-4">
+                            <div className="home-blog-entry">
+                                <Link to={`/blogs/${blog.id}`} className="home-blog-img-link">
+                                    <div className="home-blog-image-container">
+                                        <img src={`/assets/images/blog/${blog.image}`} alt={blog.title} className="home-blog-img-large" />
                                     </div>
-                                </div>
-                            ))}
+                                    <h2 className="home-blog-post-title">{blog.title}</h2>
+                                </Link>
+                                <p>{blog.brief}</p>
+                                <span className="home-blog-date">
+                                    {/* {format(new Date(blog.dateCreate), 'dd-MM-yyyy')} */}
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-center">
