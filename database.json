@@ -188,6 +188,132 @@
       "category": 3,
       "quantity": 33,
       "image": "Blue jeans -10.jpg"
+    },
+    {
+      "id": "22",
+      "title": "Ao",
+      "price": 100,
+      "description": "Ao du nhiet tot",
+      "category": 0,
+      "quantity": 33,
+      "image": "71YXzeOuslL._AC_UY879_.jpg"
+    },
+    {
+      "id": "23",
+      "title": "Ao",
+      "price": 120,
+      "description": "Đẳng cấp và phong cách - Bộ quần áo nam cổ tay mùa hè đang chờ đón bạn! ",
+      "category": 4,
+      "quantity": 120,
+      "image": "51eg55uWmdL._AC_UX679_.jpg"
+    },
+    {
+      "id": "24",
+      "title": "Ao",
+      "price": 100,
+      "description": "Áo thun phông cotton unisex nữ form rộng cổ nhọn",
+      "category": 4,
+      "quantity": 40,
+      "image": "61pHAEJ4NML._AC_UX679_.jpg"
+    },
+    {
+      "id": "25",
+      "title": "Ao",
+      "price": 180,
+      "description": "+ Ưu điểm: đứng form tôn dáng, mặc thoáng mát\n + Hướng dẫn Bảo quản: giũ trước khi phơi, hạn chế chất tẩy rửa, giặt dưới 30 độ và tránh phơi trực tiếp dưới ánh nắng mặt trời\n+ Điểm nổi bật: -Khi mặc các sản phẩm từ vải đũi, bạn sẽ có cảm giác thoải mái, dễ chịu bởi trọng lượng vải khá nhẹ, chất vải mềm mịn, êm ái.",
+      "category": 1,
+      "quantity": 50,
+      "image": "71li-ujtlUL._AC_UX679_.jpg"
+    },
+    {
+      "id": "26",
+      "title": "Ao",
+      "price": 90,
+      "description": "HƯỚNG DẪN CHỌN SIZE :\nsize M 48-60 kg\nSize L 61-68 kg \nSize XL 69 - 76 Kg \nSize XXL 77 _83 kg\nSize 3XL 83 _90 kg\n+ Xuất xứ: Việt Nam\n+ Ưu điểm: đứng form tôn dáng, mặc thoáng mát\n + Hướng dẫn Bảo quản: giũ trước khi phơi, hạn chế chất tẩy rửa, giặt dưới 30 độ và tránh phơi trực tiếp dưới ánh nắng mặt trời\n+ Điểm nổi bật: -Khi mặc các sản phẩm từ vải đũi, bạn sẽ có cảm giác thoải mái, dễ chịu bởi trọng lượng vải khá nhẹ, chất vải mềm mịn, êm ái.",
+      "category": 4,
+      "quantity": 33,
+      "image": "71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+    },
+    {
+      "id": "27",
+      "title": "Trang sức",
+      "price": 1500,
+      "description": "Nhẫn cầu hôn, nhẫn nữ kim cương Moissanite 7,8 ly kiểm định GRA LAVESTA KC82 lộng lẫy, quyến rũ",
+      "category": 4,
+      "quantity": 20,
+      "image": "diamond-ring-transparent-background-3d-rendering-illustration_494250-2732-removebg-preview.png"
+    },
+    {
+      "id": "28",
+      "title": "Trang sức",
+      "price": 1300,
+      "description": "Nhẫn đôi nam nữ kim cương Moissanite kiểm định GRA, bạc xi bạch kim LAVESTA KC95 Touch one's heart\n\"Touch one's heart\" có nghĩa là chạm vào trái tim của một người.",
+      "category": 4,
+      "quantity": 0,
+      "image": "71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+    },
+    {
+      "id": "29",
+      "title": "Trang sức",
+      "price": 1500,
+      "description": "Chất LƯỢNG NGOẠI LỆ - Đồ trang sức này được làm theo tiêu chuẩn chất lượng cao nhất. Nó không chứa niken và không gây dị ứng, 100% an toàn cho da nhạy cảm. Chúng tôi kiểm tra từng mặt hàng khi nó rời khỏi xưởng của chúng tôi để đảm bảo bạn sẽ hài lòng với độ hoàn thiện cao cấp và các chi tiết cẩn thận.",
+      "category": 3,
+      "quantity": 300,
+      "image": "71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+    },
+    {
+      "id": "30",
+      "title": "Trang sức",
+      "price": 2000,
+      "description": "☆ Product name: Stainless steel titanium ring design with various fashionable and elegant female styles\n☆ Color: Gold\n☆ Material: Titanium not black, stainless steel, not fading\nSuitable for: parties, daily accessories, birthday gifts, celebrations, etc.\n☆ Package includes: 1 * Ring\nAttention:\nDue to manual measurement, please allow a product error of 1-3 centimeters.\nDue to differences in lighting and screen settings, the color of the product may differ slightly from the image.\nWishing you a pleasant shopping experience!\nNote: Products in the store that use gold, diamond, and gemstone materials are all electroplated/artificial",
+      "category": 4,
+      "quantity": 20,
+      "image": "jewelry-isolated-background-3d-rendering-illustration_494250-106821-removebg-preview.png"
+    },
+    {
+      "id": "31",
+      "title": "Trang sức",
+      "price": 1500,
+      "description": "Anti-allergy Ear Rings Hoop Earrings\n Gender:Unisex\n Color:Silver\n Material:Stainless Steel.\n Color:Silver\n Diameter:10mm, 12mm, 14mm, 16mm, 18mm\n Quantity:1Pcs",
+      "category": 4,
+      "quantity": 300,
+      "image": "gold-earrings-with-diamonds-isolated-transparent-background_191095-13251-removebg-preview.png"
+    },
+    {
+      "id": "32",
+      "title": "Thiết bị điện tử",
+      "price": 900,
+      "description": "Màn Hình Máy Tính Gaming E-Dra EGM22F75 22inch FullHD 75hz 5ms IPS\n\n- Màu sắc: Đen\n- Loại màn hình: Màn hình phẳng\n- Tỉ lệ: 16:9\n- Kích thước: 21.5 inch\n- Tấm nền: IPS\n- Độ phân giải: FHD (1920x1080)\n- Tốc độ làm mới: 75Hz\n- Thời gian đáp ứng: 5ms (OD)\n- Công nghệ bảo vệ mắt E-Protect\n- VESA: 75x75mm\n- Cổng kết nối: 1xHDMI\n- Chân cố định(Fixed Stand) cứng cáp.\n- Phụ kiện: Cáp nguồn, Cáp HDMI\n- Kích thước: 500x85.7x340mm\n- Kích thước thùng: 550*95*360mm",
+      "category": 1,
+      "quantity": 200,
+      "image": "81QpkIctqPL._AC_SX679_.jpg"
+    },
+    {
+      "id": "33",
+      "title": "Thiết bị điện tử",
+      "price": 1900,
+      "description": "Công ty máy tính TDC đã có hơn 10 năm kinh nghiệm trên việc cung cấp ra thị trường toàn quốc sản phẩm máy tính để bàn DELL , máy tính đồng bộ DELL quà các sàn thương mại điện tử để quý khách hàng có thể tiếp cận với giá thành rẻ n.h.ấ.t, với rất nhiều ưu đãi từ sản thường mại điện tử LAZADA.\n\nVới dòng sản phẩm DELL này sử dụng chip gen thế hệ 4 chạy ram DDR3 tương ứng các mã DELL OPTIPLEX 3020 SFF / DELL OPTIPLEX 7020 SFF / DELL OPTIPLEX 9020 SFF( sẽ được giao ngẫu nhiên tuỳ từng đợt - là 1 trong 3 mã trên). Khi đặt hàng thành công shop sẽ gửi hàng đi đúng HÃNG DELL và cấu hình đúng như quý khách hàng đã lựa chọn.",
+      "category": 1,
+      "quantity": 500,
+      "image": "computer-isolated-transparent-background_883101-12160_1-removebg-preview.png"
+    },
+    {
+      "id": "34",
+      "title": "Thiết bị điện tử",
+      "price": 1100,
+      "description": "Product details of card màn hình gtx 750ti ,650ti , 650 .... ( gửi chi tiết sp , trước khi gói)\n+Thông tin chi tiết: \n\n- Card gồm nhiều mã , gtx 750ti , gtx 750 , gtx 650ti , ........ Khách lưu ý chọn theo phân loại nhé ( chi tiết rất cụ thể , tránh đặt nhầm phân loại ...)\n\n/////// hàng bán ra cam kết nguyên zin , chưa sửa chửa , không như mô tả hoàn tiền , tặng luôn sp ...../////\n\n+++Hàng bán ra đã được kiểm tra và test furmark , test game rất kĩ , tránh trường hợp hàng tới tay khách gặp lỗi \n\n+++ tất cả sp đều được bh 1th , lỗi 1 đổi 1 hoặc hoàn lại tiền \n\n+++ khách cứ yên tâm mua hàng ủng hộ shop nhé , thank nhiều ạ !....",
+      "category": 0,
+      "quantity": 600,
+      "image": "3d-video-graphics-card-isolated-transparent-background_191095-16692.jpg"
+    },
+    {
+      "id": "35",
+      "title": "Thiết bị điện tử",
+      "price": 300,
+      "description": "Chuột Logiteche M220 không dây Sient Click siêu bền giảm tiếng ồn",
+      "category": 0,
+      "quantity": 0,
+      "image": "computer-mouse-isolated-transparent-background_191095-18071-removebg-preview.png"
     }
   ],
   "categories": [
@@ -214,9 +340,9 @@
   ],
   "carts": [
     {
+      "id": "b35d",
       "userId": 3,
-      "totalProducts": [],
-      "id": 1
+      "totalProducts": []
     }
   ],
   "users": [
