@@ -1,98 +1,112 @@
-:root {
-  --white: #ffffff;
-  --gray: #333333;
-  --blue: #008CBA;
-  --lightblue: #00A0B0;
-  --button-radius: 25px;
-  --max-width: 400px;
-  --max-height: 300px;
-
-  font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-.login-page {
-  flex-grow: 1;
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://res.cloudinary.com/dci1eujqw/image/upload/v1616769558/Codepen/waldemar-brandt-aThdSdgx0YM-unsplash_cnq4sb.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 100vh;
+  background-color: #f0f2f5;
 }
 
-.login-container {
-  background-color: var(--white);
-  border-radius: 10px;
-  box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25);
-  height: 100%;
-  max-width: var(--max-width);
-  width: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
-  margin: 20% auto;
-}
-
-.login-title {
-  font-weight: 300;
-  margin: 0 0 1.5rem;
-  font-size: 1.5rem;
-  color: var(--gray);
-  text-align: center;
-}
-
-.login-form {
+.login-signin-content {
   display: flex;
-  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+}
+
+.login-signin-image {
+  flex: 1;
+  padding: 20px;
+}
+
+.login-signin-image img {
+  max-width: 100%;
+  /* height: auto; */
+}
+
+.login-signin-form {
+  flex: 1;
+  padding: 40px;
+}
+
+.login-form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-form-group {
+  margin-bottom: 15px;
 }
 
 .login-input {
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 5px;
-  padding: 0.9rem;
-  margin: 0.5rem 0;
   width: 100%;
-  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-.login-link {
-  color: var(--gray);
-  font-size: 0.9rem;
-  margin: 1rem 0;
-  text-decoration: none;
-  align-self: flex-start;
-}
-
-.login-btn {
-  background-color: var(--blue);
-  border-radius: var(--button-radius);
+.login-form-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #1877f2;
+  color: white;
   border: none;
-  color: var(--white);
-  cursor: pointer;
-  font-size: 0.8rem;
+  border-radius: 6px;
+  font-size: 18px;
   font-weight: bold;
-  letter-spacing: 0.1rem;
-  padding: 0.9rem 4rem;
-  text-transform: uppercase;
-  transition: background-color 0.2s ease-in-out;
-  margin-top: 1rem;
-  align-self: center;
+  cursor: pointer;
 }
 
-.login-btn:hover {
-  background-color: var(--lightblue);
+.login-form-submit:hover {
+  background-color: #166fe5;
+}
+
+.login-social-login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-social-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-socials {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.login-socials li {
+  margin: 0 10px;
+}
+
+.login-socials a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #3b5998;
+  color: white;
+}
+
+.login-socials .fa-twitter {
+  background-color: #1da1f2;
+}
+
+.login-socials .fa-google {
+  background-color: #db4437;
+}
+
+.login-signup-image-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #1877f2;
+  text-decoration: none;
 }

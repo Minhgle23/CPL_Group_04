@@ -3,7 +3,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Row, Col } from "react-bootstrap";
+
 import { Route, Routes, useLocation } from "react-router-dom";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +15,7 @@ import AdminRoute from './component/ManageRoutes/AdminRoute';
 import { CartProvider } from "./component/CartContext";
 import Cart from "./component/Cart";
 //common
+
 import Home from "./component/Home";
 import Product from "./component/Product";
 import Login from "./component/Login";
@@ -43,9 +46,12 @@ import UserList from "./component/Admin/UserList";
 
 import RegistrationForm from "./component/Register";
 import ProductDetail from "./component/User/ProductDetail";
+
+import Footer from "./component/common/Footer";
+import ForgotPassword from "./component/ForgotPassWord";
+
 import AdminEditBlog from "./component/Admin/AdminEditBlog";
 import AdminDashboard from "./component/common/AdminDashBoard";
-
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -88,6 +94,12 @@ function App() {
       <Row>
         <Col xs={12} sm={12} md={12}>
           <Routes>
+          <Route
+                path="/forgot"
+                element={
+                  <ForgotPassword/>
+                }
+              />
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Product />} />
             <Route path="/blogs" element={<BlogList />} />
@@ -117,6 +129,7 @@ function App() {
           <ToastContainer />
         </Col>
       </Row>
+
 
     </CartProvider>
   );
