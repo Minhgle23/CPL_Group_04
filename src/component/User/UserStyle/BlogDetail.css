@@ -16,8 +16,8 @@
   }
   
   .blog-image {
-    height: 400px;
-    object-fit: cover;
+    height: 500px;
+    object-fit: contain;
   }
   
   .blog-title {

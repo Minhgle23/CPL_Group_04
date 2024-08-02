@@ -14,7 +14,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { Container, Row, Col } from 'react-bootstrap';
-import AdminSideBar from './AdminSideBar.jsx';
 import {
   BsFillArchiveFill,
   BsFillGrid3X3GapFill,
@@ -64,7 +63,6 @@ const AdminHome = () => {
     <Container fluid>
       <Row>
         <Col xs={12} md={2} className="sidebar-hidden">
-          <AdminSideBar />
         </Col>
         <Col xs={12} md={10}>
           <main className="main-container">
@@ -102,27 +100,7 @@ const AdminHome = () => {
               </div>
             </div>
             <div className="charts">
-              <div className="chart-container">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={chartData}
-                    margin={{
-                      top: 5,
-                      right: 30,
-                      left: 20,
-                      bottom: 5,
-                    }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="revenue" fill="#8884d8" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-
+            
               <div className="chart-container">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart
