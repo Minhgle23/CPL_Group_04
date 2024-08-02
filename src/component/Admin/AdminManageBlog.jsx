@@ -69,7 +69,7 @@ function AdminManageBlog() {
               <td>{blog.title}</td>
               <td>{format(new Date(blog.dateCreate), 'yyyy-MM-dd')}</td>
               <td>
-                <img className="blog-image" src={process.env.PUBLIC_URL + `/assets/images/blog/${blog.image}`} alt={blog.title} width="100" />
+                <img className="blog-image2" src={process.env.PUBLIC_URL + `/assets/images/blog/${blog.image}`} alt={blog.title} width="100" />
               </td>
               <td>
                 <Button

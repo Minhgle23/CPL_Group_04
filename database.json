@@ -301,6 +301,17 @@
           "date": "7/23/2024"
         }
       ]
+    },
+    {
+      "id": "1722396294734",
+      "productId": "6",
+      "ratings": [
+        {
+          "userId": "3",
+          "rate": 4
+        }
+      ],
+      "comments": []
     }
   ],
   "detailOrders": [

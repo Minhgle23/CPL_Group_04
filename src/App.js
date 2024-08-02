@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Row, Col } from "react-bootstrap";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -44,11 +44,13 @@ import UserList from "./component/Admin/UserList";
 import RegistrationForm from "./component/Register";
 import ProductDetail from "./component/User/ProductDetail";
 import AdminEditBlog from "./component/Admin/AdminEditBlog";
+import AdminDashboard from "./component/common/AdminDashBoard";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
-
+  const location = useLocation();
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     console.log(storedUser);
@@ -59,17 +61,17 @@ function App() {
       // setUser(user);
     }
   }, []);
-  const noNavbarPaths = ["/login"];
+  const noNavbarPaths = ["/login","/dashboard"];
   return (
     <CartProvider>
-      {/* {!noNavbarPaths.includes(location.pathname) && (
+      {!noNavbarPaths.includes(location.pathname) && (
         <Navbar
           user={user}
           setUser={setUser}
           setIsAuthenticated={setIsAuthenticated}
         />
-      )} */}
-      {user?.role !== "ADMIN" ? (
+      )}
+      {/* {user?.role !== "ADMIN" ? (
         <Navbar
           user={user}
           setUser={setUser}
@@ -81,7 +83,7 @@ function App() {
           setUser={setUser}
           setIsAuthenticated={setIsAuthenticated}
         />
-      )}
+      )} */}
 
       <Row>
         <Col xs={12} sm={12} md={12}>
@@ -99,7 +101,7 @@ function App() {
             <Route path="/cart/verify" element={<Verify />} />
             <Route path="/success" element={<Success />} />
             <Route path="/fail" element={<FailTransaction />} />
-            <Route path="/dashboard" element={<AdminRoute Component={AdminHome} />} />
+            <Route path="/dashboard" element={<AdminRoute Component={AdminDashboard} />} />
             <Route path="/manage/product" element={<AdminRoute Component={ProductList} />} />
             <Route path="/manage/add-product" element={<AdminRoute Component={AddProduct} />} />
             <Route path="/manage/product/edit/:id" element={<AdminRoute Component={EditProduct} />} />
