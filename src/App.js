@@ -15,7 +15,7 @@ import AdminRoute from './component/ManageRoutes/AdminRoute';
 import { CartProvider } from "./component/CartContext";
 import Cart from "./component/Cart";
 //common
-
+import Footer from "./component/common/Footer";
 import Home from "./component/Home";
 import Product from "./component/Product";
 import Login from "./component/Login";
@@ -39,19 +39,14 @@ import EditProduct from "./component/Admin/EditProduct";
 import AddCategory from "./component/Admin/AddCategory";
 import CategoryList from "./component/Admin/CategoryList";
 import EditCategory from "./component/Admin/EditCategory";
-
-
 import AdminManageBlog from "./component/Admin/AdminManageBlog";
 import UserList from "./component/Admin/UserList";
-
 import RegistrationForm from "./component/Register";
 import ProductDetail from "./component/User/ProductDetail";
-
-import Footer from "./component/common/Footer";
 import ForgotPassword from "./component/ForgotPassWord";
-
 import AdminEditBlog from "./component/Admin/AdminEditBlog";
 import AdminDashboard from "./component/common/AdminDashBoard";
+import RevenueTable from "./component/Admin/RevenueTable";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -67,7 +62,8 @@ function App() {
       // setUser(user);
     }
   }, []);
-  const noNavbarPaths = ["/login","/dashboard"];
+  const noNavbarPaths = ["/dashboard", "/login"];
+  const noFooterPaths = ["/dashboard"];
   return (
     <CartProvider>
       {!noNavbarPaths.includes(location.pathname) && (
@@ -123,13 +119,17 @@ function App() {
             <Route path="/manage/add-blog" element={<AdminRoute Component={AdminCreateBlog} />} />
             <Route path="/manage/blogs" element={<AdminRoute Component={AdminManageBlog} />} />
             <Route path="/manage/blog/edit/:id" element={<AdminRoute Component={AdminEditBlog}/> }/>
+            <Route path="/manage/revenue/table" element={<AdminRoute Component={RevenueTable}/> }/>
             <Route path="/manage/customers" element={<UserList />} />
             <Route path="/manage/customer/view/:id" element={<UserProfile />} />
           </Routes>
+          
           <ToastContainer />
         </Col>
       </Row>
-
+      {!noNavbarPaths.includes(location.pathname) && (
+        <Footer/>
+      )}
 
     </CartProvider>
   );

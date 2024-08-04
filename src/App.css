@@ -556,6 +556,8 @@ button[type="submit"]:hover,
   color: #000;
 }
 
+
+/* Các styles khác giữ nguyên */
 .quantity-controls {
   display: flex;
   align-items: center;

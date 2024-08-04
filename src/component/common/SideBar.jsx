@@ -36,7 +36,7 @@ const Sidebar = () => {
                             <div className="sb-nav-link-icon"><FontAwesomeIcon icon={faChartArea} /></div>
                             Charts
                         </Link>
-                        <Link className="nav-link" to="/tables">
+                        <Link className="nav-link" to="/manage/revenue/table">
                             <div className="sb-nav-link-icon"><FontAwesomeIcon icon={faTable} /></div>
                             Tables
                         </Link>

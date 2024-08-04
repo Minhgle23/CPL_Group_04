@@ -54,6 +54,7 @@ function Product() {
 
   const handleCategoryChange = (e) => {
     setCateID(Number(e.target.value));
+    setLimit(6);
   };
 
   const handleSortChange = (e) => {
@@ -105,9 +106,9 @@ function Product() {
             </NavLink>
           </div>
           <div className="card-body d-flex flex-column">
-            <h5 className="card-title">{item.title}</h5>
-            <p className="card-text text-muted">{item.category}</p>
-            <p className="card-text fw-bold">${item.price}</p>
+            <h5 className="card-title text-muted">{item.title}</h5>
+            <p className="card-text text-muted" style={{fontSize: "20px"}}>{categories.find(c => c.cateid == item.category)?.name}</p>
+            <p className="card-text text-muted fw-bold">${item.price}</p>
             <NavLink
               to={`/products/${item.id}`}
               className="btn btn-dark mt-auto"
@@ -186,16 +187,9 @@ function Product() {
                 <option value="low-high">Price: Low to High</option>
                 <option value="high-low">Price: High to Low</option>
               </Form.Select>
-              {/* <label>Show:</label>
-              <Form.Select value={itemsPerPage} onChange={handleItemsPerPageChange}>
-                <option value="12">Show: 12</option>
-                <option value="24">Show: 24</option>
-                <option value="36">Show: 36</option>
-              </Form.Select> */}
             </div>
           </div>
           <Row className="product-grid">{listProduct.map(cardItem)}</Row>
-          {/* <Row>{listProduct.map(cardItem)}</Row> */}
           <div className="text-center mt-4">
             <Button variant="outline-dark" onClick={handleLoadMore}>Load More</Button>
           </div>

@@ -20,7 +20,7 @@ const AdminDashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
-    navigate("/login"); // Redirect to home page after logout
+    navigate("/login");
   };
 
   return (
@@ -28,7 +28,6 @@ const AdminDashboard = () => {
       <div className="header">
         <div className="toggle-btn">&#9776;</div>
         <div className="header-right">
-          
           {user && (
             <Dropdown align="end">
               <Dropdown.Toggle variant="outline-light" id="dropdown-basic">
@@ -73,7 +72,11 @@ const AdminDashboard = () => {
                     color: "secondary",
                     link: "/charts",
                   },
-                  { title: "Revenue table", color: "info", link: "/tables" },
+                  {
+                    title: "Revenue table",
+                    color: "info",
+                    link: "/manage/revenue/table",
+                  },
                 ].map((item, index) => (
                   <div className="col-xl-4 col-md-6" key={index}>
                     <div className={`card bg-${item.color} text-white mb-4`}>
